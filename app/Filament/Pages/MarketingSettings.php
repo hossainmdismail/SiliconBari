@@ -177,7 +177,9 @@ class MarketingSettings extends Page implements Forms\Contracts\HasForms
                                     ]),
                             ]),
                     ]),
-            ]);
+            ])
+            ->model($this->record)
+            ->statePath('data');
     }
 
     public function content(Schema $schema): Schema
