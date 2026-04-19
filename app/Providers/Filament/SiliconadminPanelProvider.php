@@ -31,7 +31,7 @@ class SiliconadminPanelProvider extends PanelProvider
             ->login()
             ->favicon(fn (): string => GlobalSetting::query()->first()?->favicon_url ?? asset('favicon.ico'))
             ->colors([
-                'primary' => Color::Red,
+                'primary' => Color::hex('#00a1b0'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
