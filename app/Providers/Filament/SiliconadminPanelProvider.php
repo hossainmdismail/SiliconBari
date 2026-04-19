@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\GlobalSetting;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -28,6 +29,7 @@ class SiliconadminPanelProvider extends PanelProvider
             ->id('siliconadmin')
             ->path('siliconadmin')
             ->login()
+            ->favicon(fn (): string => GlobalSetting::query()->first()?->favicon_url ?? asset('favicon.ico'))
             ->colors([
                 'primary' => Color::Red,
             ])
