@@ -10,8 +10,11 @@ use App\Filament\Resources\Insights\InsightResource;
 use App\Filament\Resources\SeoPages\SeoPagesResource;
 use App\Filament\Resources\Services\ServiceResource;
 use App\Filament\Resources\Testimonials\TestimonialResource;
+use Filament\Notifications\Notification;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\Widget;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DashboardQuickLinks extends Widget
 {
@@ -22,6 +25,57 @@ class DashboardQuickLinks extends Widget
     protected int | string | array $columnSpan = 'full';
 
     protected string $view = 'filament.widgets.dashboard-quick-links';
+
+    public function revokeSession(string $sessionId): void
+    {
+        if (! $this->supportsDatabaseSessions()) {
+            return;
+        }
+
+        if ($sessionId === session()->getId()) {
+            Notification::make()
+                ->warning()
+                ->title('Current session cannot be logged out from here.')
+                ->send();
+
+            return;
+        }
+
+        DB::table(config('session.table', 'sessions'))
+            ->where('id', $sessionId)
+            ->where('user_id', filament()->auth()->id())
+            ->delete();
+
+        filament()->auth()->user()?->forceFill([
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        Notification::make()
+            ->success()
+            ->title('Session logged out successfully.')
+            ->send();
+    }
+
+    public function revokeOtherSessions(): void
+    {
+        if (! $this->supportsDatabaseSessions()) {
+            return;
+        }
+
+        DB::table(config('session.table', 'sessions'))
+            ->where('user_id', filament()->auth()->id())
+            ->where('id', '!=', session()->getId())
+            ->delete();
+
+        filament()->auth()->user()?->forceFill([
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        Notification::make()
+            ->success()
+            ->title('All other sessions have been logged out.')
+            ->send();
+    }
 
     protected function getViewData(): array
     {
@@ -84,6 +138,37 @@ class DashboardQuickLinks extends Widget
                     'url' => MarketingSettings::getUrl(panel: 'siliconadmin'),
                 ],
             ],
+            'supportsDatabaseSessions' => $this->supportsDatabaseSessions(),
+            'activeSessions' => $this->getActiveSessions(),
         ];
+    }
+
+    protected function supportsDatabaseSessions(): bool
+    {
+        return config('session.driver') === 'database';
+    }
+
+    protected function getActiveSessions(): array
+    {
+        if (! $this->supportsDatabaseSessions() || blank(filament()->auth()->id())) {
+            return [];
+        }
+
+        $cutoff = now()->subMinutes((int) config('session.lifetime', 120))->timestamp;
+        $currentSessionId = session()->getId();
+
+        return DB::table(config('session.table', 'sessions'))
+            ->where('user_id', filament()->auth()->id())
+            ->where('last_activity', '>=', $cutoff)
+            ->orderByDesc('last_activity')
+            ->get(['id', 'ip_address', 'user_agent', 'last_activity'])
+            ->map(fn (object $session): array => [
+                'id' => $session->id,
+                'ip_address' => $session->ip_address ?: 'Unknown IP',
+                'user_agent' => $session->user_agent ?: 'Unknown device',
+                'last_active' => now()->setTimestamp((int) $session->last_activity)->diffForHumans(),
+                'is_current' => $session->id === $currentSessionId,
+            ])
+            ->all();
     }
 }
