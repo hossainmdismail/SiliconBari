@@ -2,6 +2,27 @@
 
 @section('seo_key', 'home')
 
+@section('page_styles')
+    <style>
+        .testimonials-slider {
+            overflow: hidden;
+        }
+
+        .testimonials-slider .swiper-wrapper {
+            display: flex;
+        }
+
+        .testimonials-slider .swiper-slide {
+            flex-shrink: 0;
+            height: auto;
+        }
+
+        .testimonials-slider .testimonial-card {
+            height: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
     <section class="hero-section">
         <div class="container">
@@ -269,104 +290,34 @@
                 <h2 class="h2">Testimonials</h2>
                 <p class="text-regular">What people think about our Services</p>
             </div>
-            <div class="testimonial-card-wrapper">
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
+            @if (($testimonials ?? collect())->isNotEmpty())
+                <div class="testimonials-slider swiper" data-testimonials-slider>
+                    <div class="swiper-wrapper">
+                        @foreach (($testimonials ?? collect()) as $testimonial)
+                            <div class="swiper-slide">
+                                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
+                                    <div class="quotation-icon-block">
+                                        <div class="quotation-icon"></div>
+                                        <div class="quotation-icon"></div>
+                                    </div>
+                                    <p>{{ $testimonial->comments }}</p>
+                                    <div class="testimonial-client-info">
+                                        <img loading="lazy"
+                                            src="{{ $testimonial->client_profile_url ?: asset('images/siliconbari-client-image.png') }}"
+                                            alt="{{ $testimonial->client_name }}" class="testimonial-client-image">
+                                        <div class="testimonial-text-block">
+                                            <div class="testimonial-client-name">{{ $testimonial->client_name }}</div>
+                                            @if ($testimonial->client_designation)
+                                                <div class="text-small">{{ $testimonial->client_designation }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image_2.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Chip Insights</div>
-                            <div class="text-small">Senior Analyst</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
                 </div>
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
-                    </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Deepak Sharma</div>
-                            <div class="text-small">Lead Engineer</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
-                    </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image_1.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Aisha Khan</div>
-                            <div class="text-small">Research Scientist</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
-                </div>
-            </div>
+            @endif
         </div>
     </section>
     <section class="section-0-0">
@@ -594,6 +545,82 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        window.addEventListener('load', () => {
+            const slider = document.querySelector('[data-testimonials-slider]');
+
+            if (!slider) {
+                return;
+            }
+
+            const slideCount = slider.querySelectorAll('.swiper-slide').length;
+
+            if (slideCount <= 1) {
+                return;
+            }
+
+            const initSwiper = () => {
+                if (!window.Swiper || slider.dataset.swiperReady === 'true') {
+                    return;
+                }
+
+                slider.dataset.swiperReady = 'true';
+
+                new window.Swiper(slider, {
+                    loop: slideCount > 3,
+                    grabCursor: true,
+                    watchOverflow: true,
+                    speed: 650,
+                    slidesPerView: 1,
+                    spaceBetween: 6,
+                    slidesPerGroup: 1,
+                    autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                        ? false
+                        : {
+                              delay: 3200,
+                              disableOnInteraction: false,
+                              pauseOnMouseEnter: true,
+                          },
+                    breakpoints: {
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 6,
+                        },
+                    },
+                });
+            };
+
+            const loadSwiperScript = () => {
+                if (window.Swiper) {
+                    initSwiper();
+                    return;
+                }
+
+                const existingScript = document.querySelector('script[data-home-swiper]');
+
+                if (existingScript) {
+                    existingScript.addEventListener('load', initSwiper, { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+                script.defer = true;
+                script.dataset.homeSwiper = 'true';
+                script.addEventListener('load', initSwiper, { once: true });
+                document.body.appendChild(script);
+            };
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(loadSwiperScript, { timeout: 2000 });
+            } else {
+                window.setTimeout(loadSwiperScript, 1);
+            }
+        });
+    </script>
+@endpush
 
 @section('modals')
     <div class="schedule-modal">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Industry;
 use App\Models\Service;
+use App\Models\Testimonial;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 
@@ -16,10 +17,13 @@ class PageController extends Controller
         $industries = Industry::query()->where('is_active', true)->ordered()->get();
         $services = Service::query()->where('is_active', true)->ordered()->limit(5)->get();
         $brands = Brand::query()->where('is_active', true)->ordered()->get();
+        $testimonials = Testimonial::query()->where('is_active', true)->ordered()->get();
+
         return view('pages.home', [
             'industries' => $industries,
             'services' => $services,
             'brands' => $brands,
+            'testimonials' => $testimonials,
         ]);
     }
 

@@ -29,6 +29,8 @@ class SiliconadminPanelProvider extends PanelProvider
             ->id('siliconadmin')
             ->path('siliconadmin')
             ->login()
+            ->brandLogo(fn (): ?string => GlobalSetting::query()->first()?->logo_url)
+            ->brandName(fn (): string => GlobalSetting::query()->first()?->site_name ?: config('app.name', 'Laravel'))
             ->favicon(fn (): string => GlobalSetting::query()->first()?->favicon_url ?? asset('favicon.ico'))
             ->colors([
                 'primary' => Color::hex('#00a1b0'),
