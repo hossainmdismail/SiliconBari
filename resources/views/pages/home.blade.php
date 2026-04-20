@@ -24,6 +24,7 @@
 @endsection
 
 @section('content')
+    {{-- Hero --}}
     <section class="hero-section">
         <div class="container">
             <div class="hero-content-block">
@@ -82,6 +83,7 @@
             </div>
         </div>
     </section>
+    {{-- Brands --}}
     <section class="section-80-80 neutral-color">
         <div data-w-id="22183e64-2dd1-3e1a-2ab3-9013a5cfd04e" class="container">
             <div class="brand-ticker-title-wrap">
@@ -108,6 +110,7 @@
             </div>
         </div>
     </section>
+    {{-- Services --}}
     <section class="section-40-40">
         <div class="container">
             <div data-w-id="4f50ecc7-1654-7e1a-048b-8369418896cd" class="section-heading-block">
@@ -238,6 +241,7 @@
             </div>
         </div>
     </section>
+    {{-- Videos --}}
     <section class="section-120-0">
         <div class="container">
             <div data-w-id="e99d8898-606c-cc25-ffe3-9d027b33f915" class="section-heading-block">
@@ -265,6 +269,7 @@
             </div>
         </div>
     </section>
+    {{-- Industries --}}
     <section class="section-120-120">
         <div class="container">
             <div data-w-id="c747b432-be3a-f07b-afb7-7e4cf3d20d7b" class="section-heading-block">
@@ -284,6 +289,7 @@
             </div>
         </div>
     </section>
+    {{-- Testimonials --}}
     <section class="section-0-120">
         <div class="container">
             <div data-w-id="0af501ae-e91b-a098-555e-5460fd6b483c" class="section-heading-block">
@@ -320,6 +326,7 @@
             @endif
         </div>
     </section>
+    {{-- Case Study --}}
     <section class="section-0-0">
         <div class="container">
             <div class="case-studies-content-wrapper">
@@ -385,6 +392,7 @@
             </div>
         </div>
     </section>
+    {{-- Insights --}}
     <section class="section-120-120">
         <div class="container">
             <div data-w-id="ff447039-a36e-0604-258f-d9c82df5a438" class="section-heading-block">
@@ -392,72 +400,41 @@
                 <p class="text-regular">Stay Updated with the latest in semiconductor technology and company news.</p>
             </div>
             <div data-w-id="59fe2b73-295d-aa1c-65d9-6241d6aafc81" class="insights-card-wrapper">
-                <div class="insights-card">
-                    <div class="insights-card-image-block"><img
-                            src="images/SiliconBari-The-Future-of-RISC-V-in-Data-Centers.webp" loading="lazy"
-                            alt="" class="insights-card-image"></div>
-                    <div class="insights-card-text-body">
-                        <p class="event-date">Dec 13, 2025</p>
-                        <div class="insights-card-text-block">
-                            <p class="text-large">The Future of RISC-V in Data Centers</p>
-                            <p class="text-regular">How open architecture is challenging in high-performance computing.
-                            </p>
+                @foreach ($featuredInsights ?? [] as $insight)
+                    <div class="insights-card">
+                        <div class="insights-card-image-block">
+                            <img src="{{ $insight->thumbnail_url ?: asset('images/SiliconBari-The-Future-of-RISC-V-in-Data-Centers.webp') }}"
+                                loading="lazy" alt="{{ $insight->title }}" class="insights-card-image">
                         </div>
-                        <a data-wf--link-button--variant="arow-large" href="#"
-                            class="link-button w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-inline-block">
-                            <div>Learn More</div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
-                                    fill="none">
-                                    <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor"
-                                        stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg></div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="insights-card">
-                    <div class="insights-card-image-block"><img
-                            src="images/Siliconbari-AI-Ethics-in-Autonomous-Systems.png" loading="lazy" alt=""
-                            class="insights-card-image"></div>
-                    <div class="insights-card-text-body">
-                        <p class="event-date">Mar 15, 2026</p>
-                        <div class="insights-card-text-block">
-                            <p class="text-large">The Future of RISC-V in Data Centers</p>
-                            <p class="text-regular">Navigating the moral dilemmas in machine learning and
-                                decision-making.</p>
+                        <div class="insights-card-text-body">
+                            <p class="event-date">{{ optional($insight->created_at)->format('M d, Y') }}</p>
+                            <div class="insights-card-text-block">
+                                <p class="text-large">{{ $insight->title }}</p>
+                                <p class="text-regular">{{ $insight->short_description }}</p>
+                            </div>
+                            <a data-wf--link-button--variant="arow-large" href="{{ route('insights.show', $insight) }}"
+                                class="link-button w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-inline-block">
+                                <div>Learn More</div>
+                                <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-embed"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
+                                        fill="none">
+                                        <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor"
+                                            stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></div>
+                                <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
+                                        fill="none">
+                                        <path
+                                            d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
+                                            stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg></div>
+                            </a>
                         </div>
-                        <a data-wf--link-button--variant="arow-large" href="#"
-                            class="link-button w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-inline-block">
-                            <div>Learn More</div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
-                                    fill="none">
-                                    <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor"
-                                        stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg></div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </a>
                     </div>
-                </div>
+                @endforeach
                 <div id="w-node-_9a760fa5-1d7c-47d1-0b28-4e9e8cf6c839-1c8bddfb" class="upcoming-events-card">
                     <p class="text-regular semi-bold neutral-color-01">Upcoming Events</p>
                     <div class="upcoming-events-text-box-wrap">
@@ -506,6 +483,7 @@
             </div>
         </div>
     </section>
+    {{-- Lead --}}
     <section class="section-60-60 bg-neutral">
         <div class="container">
             <div data-w-id="414ec1d4-bda9-0e0b-a606-43a3f0a3ce43" class="cta-content-wrapper">
