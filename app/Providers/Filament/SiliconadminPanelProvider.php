@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Widgets\ContentCollectionsOverview;
 use App\Filament\Widgets\DashboardQuickLinks;
 use App\Models\GlobalSetting;
+use Filament\Auth\Pages\EditProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,6 +31,7 @@ class SiliconadminPanelProvider extends PanelProvider
             ->id('siliconadmin')
             ->path('siliconadmin')
             ->login()
+            ->profile(EditProfile::class, isSimple: false)
             ->brandLogo(fn (): ?string => GlobalSetting::query()->first()?->logo_url)
             ->brandName(fn (): string => GlobalSetting::query()->first()?->site_name ?: config('app.name', 'Laravel'))
             ->favicon(fn (): string => GlobalSetting::query()->first()?->favicon_url ?? asset('favicon.ico'))
