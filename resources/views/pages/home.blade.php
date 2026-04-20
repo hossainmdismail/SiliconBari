@@ -68,30 +68,20 @@
             </div>
             <div class="brand-ticker-wrapper">
                 <div class="brand-ticker-line">
-                    <div class="brand-ticker-brand"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_4.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt="" class="brand-logo">
+                    <div class="brand-ticker-brand">
+                        @foreach ($brands ?? [] as $brand)
+                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
+                        @endforeach
                     </div>
-                    <div class="brand-ticker-brand"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_4.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt="" class="brand-logo">
+                    <div class="brand-ticker-brand">
+                        @foreach ($brands ?? [] as $brand)
+                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
+                        @endforeach
                     </div>
-                    <div class="brand-ticker-brand"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_4.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt=""
-                            class="brand-logo">
+                    <div class="brand-ticker-brand">
+                        @foreach ($brands ?? [] as $brand)
+                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -104,107 +94,27 @@
                 <p class="text-regular">Comprehensive solutions to meet your unique challenges</p>
             </div>
             <div class="service-card-wrapper">
-                <div servicecard="1" data-wf--service-card--variant="base"
-                    data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
-                    <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
-                            alt="" class="service-card-icon"></div>
-                    <div class="service-card-text-block">
-                        <p class="text-large">RISC-V SoC Verification Services</p>
-                        <p class="text-regular">UVM-based verification of RISC-V cores and SoCs. RISC-V ISA compliance
-                            testing. Custom SoC-level verification for RISC-V-based designs.</p>
+                @foreach ($services ?? [] as $service)
+                    <div servicecard="1" data-wf--service-card--variant="base"
+                        data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
+                        <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
+                                alt="" class="service-card-icon"></div>
+                        <div class="service-card-text-block">
+                            <p class="text-large">{{ $service->name }}</p>
+                            <p class="text-regular">{{ $service->short_description }}</p>
+                        </div>
+                        <a href="{{ route('services.show', $service) }}" class="service-card-button w-inline-block">
+                            <div>Learn More</div>
+                            <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
+                                        stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg></div>
+                        </a>
                     </div>
-                    <a href="#" class="service-card-button w-inline-block">
-                        <div>Learn More</div>
-                        <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
-                                    stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div servicecard="1" data-wf--service-card--variant="base"
-                    data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
-                    <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
-                            alt="" class="service-card-icon"></div>
-                    <div class="service-card-text-block">
-                        <p class="text-large">PnR and Physical Design<br>Services</p>
-                        <p class="text-regular">Place-and-route services for SoC designs. Physical design for chiplets
-                            and 2.5D/3D integrated packages. Design for manufacturability (DFM) consulting.</p>
-                    </div>
-                    <a href="#" class="service-card-button w-inline-block">
-                        <div>Learn More</div>
-                        <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
-                                    stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div servicecard="1" data-wf--service-card--variant="base"
-                    data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
-                    <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
-                            alt="" class="service-card-icon"></div>
-                    <div class="service-card-text-block">
-                        <p class="text-large">DFT / Design-for-Testability Services</p>
-                        <p class="text-regular">DFT insertion and optimization for test coverage. Test pattern
-                            generation and ATPG services. BIST (Built-In Self-Test) design and implementation. </p>
-                    </div>
-                    <a href="#" class="service-card-button w-inline-block">
-                        <div>Learn More</div>
-                        <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
-                                    stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div servicecard="1" data-wf--service-card--variant="base"
-                    data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
-                    <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
-                            alt="" class="service-card-icon"></div>
-                    <div class="service-card-text-block">
-                        <p class="text-large">FPGA Prototyping &amp; Emulation Services</p>
-                        <p class="text-regular">FPGA-based prototyping for early software development and hardware
-                            validation. Emulation services for large SoCs that exceed simulation capacity.</p>
-                    </div>
-                    <a href="#" class="service-card-button w-inline-block">
-                        <div>Learn More</div>
-                        <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
-                                    stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div servicecard="1" data-wf--service-card--variant="base"
-                    data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
-                    <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
-                            alt="" class="service-card-icon"></div>
-                    <div class="service-card-text-block">
-                        <p class="text-large">RTL Design Services</p>
-                        <p class="text-regular">Design services for RISC-V cores and extensions. RTL design for custom
-                            IP blocks, SoC subsystems, and chiplets. Design for low-power, custom IP blocks, SoC
-                            subsystems.</p>
-                    </div>
-                    <a href="service-details.html" class="service-card-button w-inline-block">
-                        <div>Learn More</div>
-                        <div class="svg w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.8516 0.599976L18.6016 4.34998M18.6016 4.34998L14.8516 8.09998M18.6016 4.34998H0.601562"
-                                    stroke="#2F5E8C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </svg></div>
-                    </a>
-                </div>
+                @endforeach
                 <div servicecard="0" class="service-card with-button">
                     <div class="service-card-icon-block with-button-2"><img src="images/siliconbari-service-icon.svg"
                             loading="eager" alt="" class="service-card-icon with-button-3"></div>
@@ -340,22 +250,8 @@
                 <h2 class="h2">Industries We Serve</h2>
                 <p class="text-regular">Providing Specialized semiconductor solutions across diverse industries</p>
             </div>
-            @php
-                $industries = collect();
-
-                try {
-                    if (\Illuminate\Support\Facades\Schema::hasTable('industries')) {
-                        $industries = \App\Models\Industry::query()
-                            ->where('is_active', true)
-                            ->ordered()
-                            ->get();
-                    }
-                } catch (\Throwable $exception) {
-                    $industries = collect();
-                }
-            @endphp
             <div class="industries-we-serve-wrapper">
-                @foreach ($industries as $industry)
+                @foreach ($industries ?? [] as $industry)
                     <div data-w-id="2210117a-e1d0-f343-8a1d-7eb3fabd973d" class="industries-card">
                         <img loading="lazy" src="{{ $industry->image_url }}" alt="{{ $industry->name }}"
                             class="industries-card-image">
