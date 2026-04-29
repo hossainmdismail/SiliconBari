@@ -40,6 +40,11 @@ class PageController extends Controller
         return view('pages.about');
     }
 
+    public function insights(): View
+    {
+        return view('pages.insights');
+    }
+
     public function service(Service $service): View
     {
         abort_unless($service->is_active, 404);
@@ -64,7 +69,7 @@ class PageController extends Controller
     protected function sortSectionItems(?array $items): Collection
     {
         return collect($items ?? [])
-            ->filter(fn ($item): bool => filled($item['title'] ?? null))
+            ->filter(fn($item): bool => filled($item['title'] ?? null))
             ->sortBy('sort_order')
             ->values();
     }

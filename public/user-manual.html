@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiliconBari User Manual</title>
+    <style>
+        :root {
+            --bg: #f4f8fb;
+            --card: #ffffff;
+            --text: #16324f;
+            --heading: #0f172a;
+            --muted: #5b7088;
+            --line: rgba(148, 163, 184, 0.22);
+            --accent: #00a1b0;
+            --code-bg: #eef6f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, sans-serif;
+            background: linear-gradient(180deg, #eef7fb 0%, #f8fbfd 100%);
+            color: var(--text);
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 32px));
+            margin: 48px auto;
+        }
+
+        .hero {
+            margin-bottom: 20px;
+            padding: 28px 30px;
+            border-radius: 24px;
+            background: radial-gradient(circle at top left, rgba(0, 161, 176, 0.14), transparent 35%), #0f172a;
+            color: #fff;
+            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 760px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.02rem;
+            line-height: 1.7;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        h2, h3, h4 {
+            color: var(--heading);
+            margin-top: 1.7em;
+            margin-bottom: 0.55em;
+            line-height: 1.25;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+        }
+
+        p, li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            padding-left: 1.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0 24px;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        th, td {
+            border: 1px solid var(--line);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f8fbfc;
+            color: var(--heading);
+        }
+
+        code {
+            background: var(--code-bg);
+            color: var(--heading);
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.92em;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--accent);
+            border-radius: 14px;
+            background: rgba(0, 161, 176, 0.08);
+            color: var(--heading);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        @media (max-width: 767px) {
+            .wrap {
+                width: min(1080px, calc(100% - 18px));
+                margin: 18px auto 28px;
+            }
+
+            .hero,
+            .card {
+                border-radius: 18px;
+                padding: 20px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="hero">
+            <h1>SiliconBari User Manual</h1>
+            <p>Work log, available pages, dynamic sections, backend content areas, and step-by-step management notes for non-technical users.</p>
+        </section>
+
+        <section class="card">
+            <h2>Purpose</h2>
+            <p>This document works as both a <strong>work log</strong> and a <strong>user manual</strong>. It explains what has already been completed, what is available in the website, and how a client or content manager can manage the system from the backend.</p>
+
+            <h2>Project Summary</h2>
+            <ul>
+                <li>Laravel + Filament based website</li>
+                <li>Frontend based on exported Webflow design</li>
+                <li>Dynamic SEO and marketing system</li>
+                <li>Multiple backend-managed content sections</li>
+            </ul>
+
+            <h2>Admin Panel URL</h2>
+            <p><code>/siliconadmin</code></p>
+
+            <h2>Work Log</h2>
+
+            <h3>1. Frontend Base Setup</h3>
+            <ul>
+                <li>Webflow frontend assets connected with Laravel</li>
+                <li>Shared layout created</li>
+                <li>Reusable header and footer created</li>
+                <li>Home page moved into Laravel Blade structure</li>
+                <li>About page added</li>
+                <li>Service details page added</li>
+                <li>Insight details page added</li>
+            </ul>
+
+            <h3>2. SEO and Marketing System</h3>
+            <ul>
+                <li>Global SEO fallback system added</li>
+                <li>Page-based SEO system added</li>
+                <li>Marketing settings connected with frontend layout</li>
+                <li>Canonical fallback improved using <code>APP_URL</code></li>
+            </ul>
+
+            <h3>3. Filament Branding and Dashboard</h3>
+            <ul>
+                <li>Filament brand color updated</li>
+                <li>Filament logo now uses Global Settings logo</li>
+                <li>App/site name fallback added if no logo exists</li>
+                <li>Dashboard widgets added</li>
+                <li>Active sessions widget added</li>
+                <li>Admin profile page enabled</li>
+            </ul>
+
+            <h3>4. Content CRUDs Added</h3>
+            <ul>
+                <li>Industries</li>
+                <li>Services</li>
+                <li>Brands</li>
+                <li>Testimonials</li>
+                <li>Blogs / Insights</li>
+                <li>SEO Pages</li>
+            </ul>
+
+            <h3>5. Home Page Dynamic Sections</h3>
+            <ul>
+                <li>Brands section connected with backend</li>
+                <li>Industries section connected with backend</li>
+                <li>Services section connected with backend</li>
+                <li>Testimonials section connected with backend</li>
+                <li>Featured insights section connected with backend</li>
+            </ul>
+
+            <h3>6. Service and Insight Routing</h3>
+            <ul>
+                <li>Dynamic service details route added</li>
+                <li>Dynamic insight details route added</li>
+                <li>Home page cards linked to details pages</li>
+            </ul>
+
+            <h2>Available Public Pages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Route</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Home</td>
+                        <td><code>/</code></td>
+                        <td>Dynamic + static mix</td>
+                    </tr>
+                    <tr>
+                        <td>About</td>
+                        <td><code>/about-us</code></td>
+                        <td>Mostly static</td>
+                    </tr>
+                    <tr>
+                        <td>Service Details</td>
+                        <td><code>/services/{slug}</code></td>
+                        <td>Dynamic</td>
+                    </tr>
+                    <tr>
+                        <td>Insight Details</td>
+                        <td><code>/insights/{slug}</code></td>
+                        <td>Dynamic</td>
+                    </tr>
+                    <tr>
+                        <td>User Manual</td>
+                        <td><code>/user-manual.html</code></td>
+                        <td>Static HTML</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Dynamic vs Static Areas</h2>
+
+            <h3>Dynamic Areas</h3>
+            <ul>
+                <li>Global site logo and favicon</li>
+                <li>SEO values</li>
+                <li>Marketing scripts</li>
+                <li>Home page brands</li>
+                <li>Home page industries</li>
+                <li>Home page services</li>
+                <li>Home page testimonials</li>
+                <li>Home page featured insights</li>
+                <li>Service details page</li>
+                <li>Insight details page</li>
+            </ul>
+
+            <h3>Static Areas</h3>
+            <ul>
+                <li>Some homepage informational sections</li>
+                <li>Some CTA sections</li>
+                <li>Upcoming events block</li>
+                <li>Some placeholder case study and event sections</li>
+            </ul>
+
+            <h2>Backend Content Areas</h2>
+
+            <h3>Global Settings</h3>
+            <ul>
+                <li>Site name</li>
+                <li>Logo</li>
+                <li>Favicon</li>
+                <li>Footer text</li>
+                <li>Contact information</li>
+                <li>Social links</li>
+                <li>Default SEO fallback values</li>
+            </ul>
+
+            <h3>Marketing Settings</h3>
+            <ul>
+                <li>Google Tag Manager</li>
+                <li>GA4</li>
+                <li>Meta Pixel</li>
+                <li>TikTok Pixel</li>
+                <li>Verification codes</li>
+                <li>Custom head and body scripts</li>
+            </ul>
+
+            <h3>SEO Pages</h3>
+            <ul>
+                <li>Meta title</li>
+                <li>Meta description</li>
+                <li>OG title</li>
+                <li>OG description</li>
+                <li>OG image</li>
+                <li>Robots options</li>
+            </ul>
+            <p>Current page keys in use: <code>home</code>, <code>about</code></p>
+
+            <h3>Industries</h3>
+            <p>Fields: name, slug, image, short description, active, featured</p>
+            <p>Frontend use: Home page <code>Industries We Serve</code></p>
+
+            <h3>Services</h3>
+            <p>Fields: name, slug, category, short description, overview, thumbnail, banner, process/feature sections, active, featured</p>
+            <p>Frontend use: Home page service cards and service details page</p>
+
+            <h3>Brands</h3>
+            <p>Fields: brand image, active</p>
+            <p>Frontend use: Home page brand ticker</p>
+
+            <h3>Testimonials</h3>
+            <p>Fields: comments, client name, designation/object, image, active</p>
+            <p>Frontend use: Home page testimonials slider</p>
+
+            <h3>Blogs / Insights</h3>
+            <p>Fields: thumbnail, title, slug, author, category, short description, body, featured, active, SEO fields</p>
+            <p>Frontend use: Home page featured insights and insight details page</p>
+
+            <h2>Logged-in User Features</h2>
+            <ul>
+                <li>View profile page</li>
+                <li>Update name</li>
+                <li>Update email</li>
+                <li>Change password</li>
+            </ul>
+            <p>Profile route inside admin: <code>/siliconadmin/profile</code></p>
+
+            <h2>Active Sessions Widget</h2>
+            <ul>
+                <li>Shows how many active logins exist for the same account</li>
+                <li>Marks current device</li>
+                <li>Can log out other devices</li>
+                <li>Has a <code>Log Out Other Devices</code> action</li>
+            </ul>
+
+            <h2>Common Tasks</h2>
+
+            <h3>Change Website Logo</h3>
+            <ol>
+                <li>Login to <code>/siliconadmin</code></li>
+                <li>Open <code>Global Settings</code></li>
+                <li>Upload the new logo</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Change Favicon</h3>
+            <ol>
+                <li>Login to <code>/siliconadmin</code></li>
+                <li>Open <code>Global Settings</code></li>
+                <li>Upload favicon</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Add a New Service</h3>
+            <ol>
+                <li>Open <code>Services</code></li>
+                <li>Click <code>Add New</code></li>
+                <li>Fill the fields</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Add a New Industry</h3>
+            <ol>
+                <li>Open <code>Industries</code></li>
+                <li>Click <code>Add New</code></li>
+                <li>Add content and image</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Add a New Brand</h3>
+            <ol>
+                <li>Open <code>Brands</code></li>
+                <li>Click <code>Add New</code></li>
+                <li>Upload logo</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Add a Testimonial</h3>
+            <ol>
+                <li>Open <code>Testimonials</code></li>
+                <li>Click <code>Add New</code></li>
+                <li>Add client info and comment</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Add a Blog or Insight</h3>
+            <ol>
+                <li>Open <code>Blogs / Insights</code></li>
+                <li>Click <code>Add New</code></li>
+                <li>Add thumbnail, title, author, category, short description, and body</li>
+                <li>Turn on <code>Featured</code> if it should appear on home page</li>
+                <li>Save</li>
+            </ol>
+
+            <h3>Update SEO for a Page</h3>
+            <ol>
+                <li>Open <code>SEO Pages</code></li>
+                <li>Find the correct page key</li>
+                <li>Update meta and OG fields</li>
+                <li>Save</li>
+            </ol>
+
+            <h2>Future Page Development Notes</h2>
+            <ol>
+                <li>Create the route</li>
+                <li>Create the Blade file</li>
+                <li>Add a matching SEO page key if needed</li>
+                <li>Create CRUD/settings source if content should be dynamic</li>
+                <li>Update header and footer links if page should be visible in navigation</li>
+            </ol>
+
+            <h2>Recommended Next Steps</h2>
+            <ul>
+                <li>Add full insight details design</li>
+                <li>Add blog/insight listing page</li>
+                <li>Convert more static homepage sections into backend-driven content</li>
+                <li>Add case studies CRUD if needed</li>
+                <li>Add events CRUD if upcoming events should become dynamic</li>
+            </ul>
+
+            <div class="note">
+                The project already has a strong admin foundation. Most important homepage content blocks are connected to the backend. Remaining work is mainly about converting more static design sections into dynamic content modules.
+            </div>
+        </section>
+    </div>
+</body>
+</html>
