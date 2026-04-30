@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 // Single Pages
 Route::get('/about-us', [PageController::class, 'about'])->name('about');
+Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/insights', [PageController::class, 'insights'])->name('insights');
 
 // CMS Pages

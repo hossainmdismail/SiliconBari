@@ -40,9 +40,28 @@ class PageController extends Controller
         return view('pages.about');
     }
 
+    public function services(): View
+    {
+        $services = Service::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.services', [
+            'services' => $services,
+        ]);
+    }
+
     public function insights(): View
     {
-        return view('pages.insights');
+        $insights = Insight::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.insights', [
+            'insights' => $insights,
+        ]);
     }
 
     public function service(Service $service): View

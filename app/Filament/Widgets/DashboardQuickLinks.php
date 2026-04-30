@@ -5,10 +5,12 @@ namespace App\Filament\Widgets;
 use App\Filament\Pages\GlobalSettings;
 use App\Filament\Pages\MarketingSettings;
 use App\Filament\Resources\Brands\BrandResource;
+use App\Filament\Resources\Faqs\FaqResource;
 use App\Filament\Resources\Industries\IndustryResource;
 use App\Filament\Resources\Insights\InsightResource;
 use App\Filament\Resources\SeoPages\SeoPagesResource;
 use App\Filament\Resources\Services\ServiceResource;
+use App\Filament\Resources\Teams\TeamResource;
 use App\Filament\Resources\Testimonials\TestimonialResource;
 use Filament\Notifications\Notification;
 use Filament\Support\Icons\Heroicon;
@@ -122,6 +124,20 @@ class DashboardQuickLinks extends Widget
                     'icon' => Heroicon::OutlinedDocumentMagnifyingGlass,
                     'manageUrl' => SeoPagesResource::getUrl(panel: 'siliconadmin'),
                     'createUrl' => SeoPagesResource::getUrl('create', panel: 'siliconadmin'),
+                ],
+                [
+                    'label' => 'FAQs',
+                    'description' => 'Manage frequently asked questions, ordering, and publish status.',
+                    'icon' => Heroicon::OutlinedQuestionMarkCircle,
+                    'manageUrl' => FaqResource::getUrl(panel: 'siliconadmin'),
+                    'createUrl' => FaqResource::getUrl('create', panel: 'siliconadmin'),
+                ],
+                [
+                    'label' => 'Team',
+                    'description' => 'Manage team members, profile images, ordering, and publish status.',
+                    'icon' => Heroicon::OutlinedUserGroup,
+                    'manageUrl' => TeamResource::getUrl(panel: 'siliconadmin'),
+                    'createUrl' => TeamResource::getUrl('create', panel: 'siliconadmin'),
                 ],
             ],
             'settingsLinks' => [

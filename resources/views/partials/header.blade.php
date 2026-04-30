@@ -33,7 +33,7 @@
                             <div>Pages</div>
                         </div>
                         <nav class="nav-dropdown-list shadow-three mobile-shadow-hide w-dropdown-list">
-                            <a href="services.html" class="nav-dropdown-link w-dropdown-link">Services</a>
+                            <a href="{{ route('services') }}" class="nav-dropdown-link w-dropdown-link">Services</a>
                             <a href="technology.html" class="nav-dropdown-link w-dropdown-link">Technology</a>
                             <a href="industry.html" class="nav-dropdown-link w-dropdown-link">Industry</a>
                             <a href="case-studies.html" class="nav-dropdown-link w-dropdown-link">Case Studies</a>

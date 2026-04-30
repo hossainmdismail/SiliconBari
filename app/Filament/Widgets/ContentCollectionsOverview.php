@@ -3,16 +3,20 @@
 namespace App\Filament\Widgets;
 
 use App\Filament\Resources\Brands\BrandResource;
+use App\Filament\Resources\Faqs\FaqResource;
 use App\Filament\Resources\Industries\IndustryResource;
 use App\Filament\Resources\Insights\InsightResource;
 use App\Filament\Resources\SeoPages\SeoPagesResource;
 use App\Filament\Resources\Services\ServiceResource;
+use App\Filament\Resources\Teams\TeamResource;
 use App\Filament\Resources\Testimonials\TestimonialResource;
 use App\Models\Brand;
+use App\Models\Faq;
 use App\Models\Industry;
 use App\Models\Insight;
 use App\Models\SeoPages;
 use App\Models\Service;
+use App\Models\Team;
 use App\Models\Testimonial;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
@@ -66,6 +70,18 @@ class ContentCollectionsOverview extends StatsOverviewWidget
                 ->icon(Heroicon::OutlinedDocumentMagnifyingGlass)
                 ->color('danger')
                 ->url(SeoPagesResource::getUrl(panel: 'siliconadmin')),
+
+            Stat::make('FAQs', Faq::query()->count())
+                ->description(Faq::query()->where('is_active', true)->count() . ' active')
+                ->icon(Heroicon::OutlinedQuestionMarkCircle)
+                ->color('info')
+                ->url(FaqResource::getUrl(panel: 'siliconadmin')),
+
+            Stat::make('Team', Team::query()->count())
+                ->description(Team::query()->where('is_active', true)->count() . ' active')
+                ->icon(Heroicon::OutlinedUserGroup)
+                ->color('success')
+                ->url(TeamResource::getUrl(panel: 'siliconadmin')),
         ];
     }
 }

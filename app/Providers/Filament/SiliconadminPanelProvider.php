@@ -4,6 +4,8 @@ namespace App\Providers\Filament;
 
 use App\Filament\Widgets\ContentCollectionsOverview;
 use App\Filament\Widgets\DashboardQuickLinks;
+use App\Filament\Widgets\AccountOverviewWidget;
+use App\Filament\Widgets\VisitWebsiteWidget;
 use App\Models\GlobalSetting;
 use Filament\Auth\Pages\EditProfile;
 use Filament\Http\Middleware\Authenticate;
@@ -14,7 +16,6 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -45,9 +46,10 @@ class SiliconadminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
+                VisitWebsiteWidget::class,
                 ContentCollectionsOverview::class,
                 DashboardQuickLinks::class,
-                AccountWidget::class,
+                AccountOverviewWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
