@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Faq;
 use App\Models\Insight;
 use App\Models\Industry;
 use App\Models\Service;
+use App\Models\Team;
 use App\Models\Testimonial;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -37,7 +39,17 @@ class PageController extends Controller
 
     public function about(): View
     {
-        return view('pages.about');
+        $brands = Brand::query()->where('is_active', true)->ordered()->get();
+        $teams = Team::query()->where('is_active', true)->ordered()->get();
+        $testimonials = Testimonial::query()->where('is_active', true)->ordered()->get();
+        $faqs = Faq::query()->where('is_active', true)->ordered()->get();
+
+        return view('pages.about', [
+            'brands' => $brands,
+            'teams' => $teams,
+            'testimonials' => $testimonials,
+            'faqs' => $faqs,
+        ]);
     }
 
     public function services(): View

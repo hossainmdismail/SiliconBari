@@ -2,6 +2,27 @@
 
 @section('seo_key', 'about')
 
+@section('page_styles')
+    <style>
+        .testimonials-slider {
+            overflow: hidden;
+        }
+
+        .testimonials-slider .swiper-wrapper {
+            display: flex;
+        }
+
+        .testimonials-slider .swiper-slide {
+            flex-shrink: 0;
+            height: auto;
+        }
+
+        .testimonials-slider .testimonial-card {
+            height: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
     <section class="about-banner">
         <div class="container">
@@ -64,40 +85,9 @@
             </div>
         </div>
     </section>
-    <section class="section-80-80 neutral-color">
-        <div data-w-id="22183e64-2dd1-3e1a-2ab3-9013a5cfd04e" class="container">
-            <div class="brand-ticker-title-wrap">
-                <p class="brand-ticker-title">TRUSTED BY 3,000+ INDUSTRIES</p>
-            </div>
-            <div class="brand-ticker-wrapper">
-                <div class="brand-ticker-line">
-                    <div class="brand-ticker-brand"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_4.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt="" class="brand-logo"></div>
-                    <div class="brand-ticker-brand"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_4.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt="" class="brand-logo">
-                    </div>
-                    <div class="brand-ticker-brand"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_3.svg" alt=""
-                            class="brand-logo"><img loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_1.svg"
-                            alt="" class="brand-logo"><img loading="lazy"
-                            src="images/Silicon-Bari-Fictional-company-logo_4.svg" alt="" class="brand-logo"><img
-                            loading="lazy" src="images/Silicon-Bari-Fictional-company-logo_2.svg" alt=""
-                            class="brand-logo"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{-- Brands --}}
+    <x-brand-ticker :brands="$brands ?? collect()" />
+
     <section class="section-120-120 overflow-hidden">
         <div class="container">
             <div class="whoweare-wrapper">
@@ -207,164 +197,9 @@
             </div>
         </div>
     </section>
-    <section class="section-120-120">
-        <div class="container">
-            <div data-w-id="7c1d2842-4c95-3926-bd5c-e34037b07df6" class="team-title-block">
-                <h2 class="h2">Leadership Team</h2>
-                <div class="text-regular">Meet the experts driving innovation at SiliconBari</div>
-            </div>
-            <div class="team-grid">
-                <div data-w-id="d2eec07a-c8ae-57e2-8af8-152c88312642" class="team-card">
-                    <div class="team-image-wrap"><img loading="lazy" src="images/image-28-4.avif"
-                            alt="Smiling man wearing a dark baseball cap backwards and a grey T-shirt with a faded logo against a blue sky background."
-                            sizes="100vw" srcset="images/image-28-4-p-500.avif 500w, images/image-28-4.avif 768w"
-                            class="team-image"></div>
-                    <div class="team-content-block">
-                        <div class="h6">Imran mehedi</div>
-                        <div class="team-content-bottom">
-                            <div class="text-regular text-color-primary">Senior Engineer</div>
-                            <div class="text-regular">Ph.D. in Computer Architecture with 20+ years in RISC-V and SoC
-                                design</div>
-                        </div>
-                    </div>
-                </div>
-                <div data-w-id="d2eec07a-c8ae-57e2-8af8-152c88312642" class="team-card">
-                    <div class="team-image-wrap"><img loading="lazy" src="images/image-28-4.avif"
-                            alt="Smiling man wearing a dark baseball cap backwards and a grey T-shirt with a faded logo against a blue sky background."
-                            sizes="100vw" srcset="images/image-28-4-p-500.avif 500w, images/image-28-4.avif 768w"
-                            class="team-image"></div>
-                    <div class="team-content-block">
-                        <div class="h6">Imran mehedi</div>
-                        <div class="team-content-bottom">
-                            <div class="text-regular text-color-primary">Senior Engineer</div>
-                            <div class="text-regular">Ph.D. in Computer Architecture with 20+ years in RISC-V and SoC
-                                design</div>
-                        </div>
-                    </div>
-                </div>
-                <div data-w-id="d2eec07a-c8ae-57e2-8af8-152c88312642" class="team-card">
-                    <div class="team-image-wrap"><img loading="lazy" src="images/image-28-4.avif"
-                            alt="Smiling man wearing a dark baseball cap backwards and a grey T-shirt with a faded logo against a blue sky background."
-                            sizes="100vw" srcset="images/image-28-4-p-500.avif 500w, images/image-28-4.avif 768w"
-                            class="team-image"></div>
-                    <div class="team-content-block">
-                        <div class="h6">Imran mehedi</div>
-                        <div class="team-content-bottom">
-                            <div class="text-regular text-color-primary">Senior Engineer</div>
-                            <div class="text-regular">Ph.D. in Computer Architecture with 20+ years in RISC-V and SoC
-                                design</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-0-120">
-        <div class="container">
-            <div data-w-id="0af501ae-e91b-a098-555e-5460fd6b483c" class="section-heading-block">
-                <h2 class="h2">Testimonials</h2>
-                <p class="text-regular">What people think about our Services</p>
-            </div>
-            <div class="testimonial-card-wrapper">
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
-                    </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image_2.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Chip Insights</div>
-                            <div class="text-small">Senior Analyst</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
-                    </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Deepak Sharma</div>
-                            <div class="text-small">Lead Engineer</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
-                </div>
-                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                    <div class="quotation-icon-block">
-                        <div class="quotation-icon"></div>
-                        <div class="quotation-icon"></div>
-                    </div>
-                    <p>SiliconBari is the top website for semiconductor professionals, according to the 2023 Industry
-                        Insights Report.</p>
-                    <div class="testimonial-client-info"><img loading="lazy" src="images/siliconbari-client-image_1.png"
-                            alt="" class="testimonial-client-image">
-                        <div class="testimonial-text-block">
-                            <div class="testimonial-client-name">Aisha Khan</div>
-                            <div class="text-small">Research Scientist</div>
-                        </div>
-                    </div>
-                    <a data-wf--link-button--variant="base" href="#" class="link-button w-inline-block">
-                        <div>View Success Stories</div>
-                        <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                viewbox="0 0 16 16" fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                        <div class="svg arrow-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                height="9" viewbox="0 0 20 9" fill="none">
-                                <path
-                                    d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{-- Team Section --}}
+    <x-team-section :teams="$teams ?? collect()" />
+    <x-testimonials-section :testimonials="$testimonials ?? collect()" :slider="true" />
     <section class="section-0-120">
         <div class="container">
             <div data-w-id="ace0fe6e-3458-84cc-0433-224b3889c464" class="section-heading-block">
@@ -391,139 +226,90 @@
             </div>
         </div>
     </section>
-    <section class="section-0-120">
-        <div class="container">
-            <div class="section-title-block">
-                <h2 class="h2">Frequently Asked Questions</h2>
-                <div>Find answers to common questions about our semiconductor engineering services</div>
-            </div>
-            <div class="faq-content-grid">
-                <div data-delay="400" data-hover="false" data-w-id="f4ef17ee-256c-f9be-e6e0-97e224fbe50e"
-                    class="faq-acccordion w-dropdown">
-                    <div class="faq-accordion-head w-dropdown-toggle">
-                        <div class="faq-title-wrap">
-                            <h3 class="text-regular">Is my information secure with Looma?</h3>
-                        </div>
-                        <div class="faq-icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="#99A1AF" stroke-width="1.66667"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                    </div>
-                    <div class="faq-text-wrap w-dropdown-list">
-                        <div class="faq-text-wrapper">
-                            <div class="space-20px"></div>
-                            <p class="text-regular">Can I upgrade anytime?</p>
-                            <div class="space-20px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div data-delay="400" data-hover="false" data-w-id="f4ef17ee-256c-f9be-e6e0-97e224fbe50e"
-                    class="faq-acccordion w-dropdown">
-                    <div class="faq-accordion-head w-dropdown-toggle">
-                        <div class="faq-title-wrap">
-                            <h3 class="text-regular">Does it follow industry standards?</h3>
-                        </div>
-                        <div class="faq-icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="#99A1AF" stroke-width="1.66667"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                    </div>
-                    <div class="faq-text-wrap w-dropdown-list">
-                        <div class="faq-text-wrapper">
-                            <div class="space-20px"></div>
-                            <p class="text-regular">Yes! Our services are designed to adhere to the highest industry
-                                standards, ensuring quality and reliability.</p>
-                            <div class="space-20px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div data-delay="400" data-hover="false" data-w-id="f4ef17ee-256c-f9be-e6e0-97e224fbe50e"
-                    class="faq-acccordion w-dropdown">
-                    <div class="faq-accordion-head w-dropdown-toggle">
-                        <div class="faq-title-wrap">
-                            <h3 class="text-regular">Is the basic package enough?</h3>
-                        </div>
-                        <div class="faq-icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="#99A1AF" stroke-width="1.66667"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                    </div>
-                    <div class="faq-text-wrap w-dropdown-list">
-                        <div class="faq-text-wrapper">
-                            <div class="space-20px"></div>
-                            <p class="text-regular">Our basic package is a great starting point, offering core services.
-                                You can always upgrade for more advanced features.</p>
-                            <div class="space-20px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div data-delay="400" data-hover="false" data-w-id="f4ef17ee-256c-f9be-e6e0-97e224fbe50e"
-                    class="faq-acccordion w-dropdown">
-                    <div class="faq-accordion-head w-dropdown-toggle">
-                        <div class="faq-title-wrap">
-                            <h3 class="text-regular">Can I upgrade anytime?</h3>
-                        </div>
-                        <div class="faq-icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="#99A1AF" stroke-width="1.66667"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg></div>
-                    </div>
-                    <div class="faq-text-wrap w-dropdown-list">
-                        <div class="faq-text-wrapper">
-                            <div class="space-20px"></div>
-                            <p class="text-regular">Yes, you can easily upgrade your package at any time to access
-                                additional services and features.</p>
-                            <div class="space-20px"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-60-60 bg-neutral">
-        <div class="container">
-            <div data-w-id="414ec1d4-bda9-0e0b-a606-43a3f0a3ce43" class="cta-content-wrapper">
-                <div class="cta-text-block">
-                    <h2 class="h2">Ready to Transform Your Semiconductor Vision?</h2>
-                    <p class="text-regular">Let&#x27;s discuss how our expertise can accelerate your next semiconductor
-                        project</p>
-                </div>
-                <div class="button-group">
-                    <a schedule="True" data-wf--button--variant="base" href="#" class="button w-inline-block">
-                        <div class="text-regular">Book Consultation</div>
-                        <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="white" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </div>
-                    </a>
-                    <a schedule="True" data-wf--button--variant="secondary" href="#"
-                        class="button w-variant-1f7bab6e-c91f-cebe-0855-7d95a492a433 w-inline-block">
-                        <div class="text-regular">Schedule a Meeting</div>
-                        <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="white" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection
+    <x-faq-section :faqs="$faqs ?? collect()" />
 
+    <x-lead-section
+        title="Ready to Transform Your Semiconductor Vision?"
+        description="Let's discuss how our expertise can accelerate your next semiconductor project"
+        {{-- book-link="#"
+        schedule-link="#" --}}
+    />
+@endsection
+@push('scripts')
+    <script>
+        window.addEventListener('load', () => {
+            const slider = document.querySelector('[data-testimonials-slider]');
+
+            if (!slider) {
+                return;
+            }
+
+            const slideCount = slider.querySelectorAll('.swiper-slide').length;
+
+            if (slideCount <= 1) {
+                return;
+            }
+
+            const initSwiper = () => {
+                if (!window.Swiper || slider.dataset.swiperReady === 'true') {
+                    return;
+                }
+
+                slider.dataset.swiperReady = 'true';
+
+                new window.Swiper(slider, {
+                    loop: slideCount > 3,
+                    grabCursor: true,
+                    watchOverflow: true,
+                    speed: 650,
+                    slidesPerView: 1,
+                    spaceBetween: 6,
+                    slidesPerGroup: 1,
+                    autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                        ? false
+                        : {
+                              delay: 3200,
+                              disableOnInteraction: false,
+                              pauseOnMouseEnter: true,
+                          },
+                    breakpoints: {
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 6,
+                        },
+                    },
+                });
+            };
+
+            const loadSwiperScript = () => {
+                if (window.Swiper) {
+                    initSwiper();
+                    return;
+                }
+
+                const existingScript = document.querySelector('script[data-home-swiper]');
+
+                if (existingScript) {
+                    existingScript.addEventListener('load', initSwiper, { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+                script.defer = true;
+                script.dataset.homeSwiper = 'true';
+                script.addEventListener('load', initSwiper, { once: true });
+                document.body.appendChild(script);
+            };
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(loadSwiperScript, { timeout: 2000 });
+            } else {
+                window.setTimeout(loadSwiperScript, 1);
+            }
+        });
+    </script>
+@endpush
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', () => {

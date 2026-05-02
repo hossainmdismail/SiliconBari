@@ -84,32 +84,7 @@
         </div>
     </section>
     {{-- Brands --}}
-    <section class="section-80-80 neutral-color">
-        <div data-w-id="22183e64-2dd1-3e1a-2ab3-9013a5cfd04e" class="container">
-            <div class="brand-ticker-title-wrap">
-                <p class="brand-ticker-title">TRUSTED BY 3,000+ INDUSTRIES</p>
-            </div>
-            <div class="brand-ticker-wrapper">
-                <div class="brand-ticker-line">
-                    <div class="brand-ticker-brand">
-                        @foreach ($brands ?? [] as $brand)
-                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
-                        @endforeach
-                    </div>
-                    <div class="brand-ticker-brand">
-                        @foreach ($brands ?? [] as $brand)
-                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
-                        @endforeach
-                    </div>
-                    <div class="brand-ticker-brand">
-                        @foreach ($brands ?? [] as $brand)
-                            <img loading="lazy" src="{{ $brand->brand_image_url }}" alt="" class="brand-logo">
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-brand-ticker :brands="$brands ?? collect()" />
     {{-- Services --}}
     <section class="section-40-40">
         <div class="container">
@@ -290,42 +265,7 @@
         </div>
     </section>
     {{-- Testimonials --}}
-    <section class="section-0-120">
-        <div class="container">
-            <div data-w-id="0af501ae-e91b-a098-555e-5460fd6b483c" class="section-heading-block">
-                <h2 class="h2">Testimonials</h2>
-                <p class="text-regular">What people think about our Services</p>
-            </div>
-            @if (($testimonials ?? collect())->isNotEmpty())
-                <div class="testimonials-slider swiper" data-testimonials-slider>
-                    <div class="swiper-wrapper">
-                        @foreach (($testimonials ?? collect()) as $testimonial)
-                            <div class="swiper-slide">
-                                <div data-w-id="369b3119-c136-2b79-eabf-4d78a0f3ecaa" class="testimonial-card">
-                                    <div class="quotation-icon-block">
-                                        <div class="quotation-icon"></div>
-                                        <div class="quotation-icon"></div>
-                                    </div>
-                                    <p>{{ $testimonial->comments }}</p>
-                                    <div class="testimonial-client-info">
-                                        <img loading="lazy"
-                                            src="{{ $testimonial->client_profile_url ?: asset('images/siliconbari-client-image.png') }}"
-                                            alt="{{ $testimonial->client_name }}" class="testimonial-client-image">
-                                        <div class="testimonial-text-block">
-                                            <div class="testimonial-client-name">{{ $testimonial->client_name }}</div>
-                                            @if ($testimonial->client_designation)
-                                                <div class="text-small">{{ $testimonial->client_designation }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        </div>
-    </section>
+    <x-testimonials-section :testimonials="$testimonials ?? collect()" :slider="true" />
     {{-- Case Study --}}
     <section class="section-0-0">
         <div class="container">
@@ -483,45 +423,12 @@
             </div>
         </div>
     </section>
-    {{-- Lead --}}
-    <section class="section-60-60 bg-neutral">
-        <div class="container">
-            <div data-w-id="414ec1d4-bda9-0e0b-a606-43a3f0a3ce43" class="cta-content-wrapper">
-                <div class="cta-text-block">
-                    <h2 class="h2">Ready to Transform Your Semiconductor Vision?</h2>
-                    <p class="text-regular">Let&#x27;s discuss how our expertise can accelerate your next semiconductor
-                        project</p>
-                </div>
-                <div class="button-group">
-                    <a schedule="True" data-wf--button--variant="base" href="#" class="button w-inline-block">
-                        <div class="text-regular">Book Consultation</div>
-                        <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="white" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </div>
-                    </a>
-                    <a schedule="True" data-wf--button--variant="secondary" href="#"
-                        class="button w-variant-1f7bab6e-c91f-cebe-0855-7d95a492a433 w-inline-block">
-                        <div class="text-regular">Schedule a Meeting</div>
-                        <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="white" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-lead-section
+        title="Ready to Transform Your Semiconductor Vision?"
+        description="Let's discuss how our expertise can accelerate your next semiconductor project"
+        {{-- book-link="#"
+        schedule-link="#" --}}
+    />
 @endsection
 
 @push('scripts')
