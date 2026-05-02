@@ -13,6 +13,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -25,6 +26,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class IndustryResource extends Resource
@@ -87,6 +89,18 @@ class IndustryResource extends Resource
                             ->maxLength(1000)
                             ->columnSpanFull(),
 
+                        Section::make('Key Applications')
+                            ->schema([
+                                static::makeListRepeater('key_applications', 'Add Application'),
+                            ])
+                            ->columnSpanFull(),
+
+                        Section::make('Expertise')
+                            ->schema([
+                                static::makeListRepeater('expertise', 'Add Expertise'),
+                            ])
+                            ->columnSpanFull(),
+
                         TextInput::make('sort_order')
                             ->label('Sort Order')
                             ->numeric()
@@ -133,6 +147,18 @@ class IndustryResource extends Resource
                     ->copyable()
                     ->toggleable(),
 
+                TextColumn::make('key_applications')
+                    ->label('Applications')
+                    ->state(fn (Industry $record): string => (string) count($record->key_applications ?? []))
+                    ->badge()
+                    ->toggleable(),
+
+                TextColumn::make('expertise')
+                    ->label('Expertise')
+                    ->state(fn (Industry $record): string => (string) count($record->expertise ?? []))
+                    ->badge()
+                    ->toggleable(),
+
                 IconColumn::make('is_featured')
                     ->label('Featured')
                     ->boolean()
@@ -175,5 +201,36 @@ class IndustryResource extends Resource
             'view' => ViewIndustry::route('/{record}'),
             'edit' => EditIndustry::route('/{record}/edit'),
         ];
+    }
+
+    protected static function makeListRepeater(string $name, string $addActionLabel): Repeater
+    {
+        return Repeater::make($name)
+            ->label('')
+            ->schema([
+                TextInput::make('title')
+                    ->label('Title')
+                    ->required()
+                    ->maxLength(255),
+            ])
+            ->default([])
+            ->reorderable()
+            ->collapsible()
+            ->cloneable()
+            ->addActionLabel($addActionLabel)
+            ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
+            ->dehydrateStateUsing(fn (?array $state): array => static::normalizeItems($state));
+    }
+
+    protected static function normalizeItems(?array $state): array
+    {
+        return Collection::make($state)
+            ->filter(fn ($item): bool => filled($item['title'] ?? null))
+            ->values()
+            ->map(fn (array $item, int $index): array => [
+                'title' => $item['title'],
+                'sort_order' => $index + 1,
+            ])
+            ->all();
     }
 }

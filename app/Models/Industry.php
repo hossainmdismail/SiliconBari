@@ -13,6 +13,8 @@ class Industry extends Model
         'slug',
         'image',
         'short_description',
+        'key_applications',
+        'expertise',
         'is_active',
         'is_featured',
         'sort_order',
@@ -21,6 +23,8 @@ class Industry extends Model
     protected function casts(): array
     {
         return [
+            'key_applications' => 'array',
+            'expertise' => 'array',
             'is_active' => 'boolean',
             'is_featured' => 'boolean',
         ];

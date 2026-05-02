@@ -76,6 +76,38 @@ class PageController extends Controller
         ]);
     }
 
+    public function industries(): View
+    {
+        $industries = Industry::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.industries', [
+            'industries' => $industries,
+        ]);
+    }
+
+    public function technology(): View
+    {
+        $industries = Industry::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.technology', [
+            'industries' => $industries,
+        ]);
+    }
+
+    public function contact(): View
+    {
+        $faqs = Faq::query()->where('is_active', true)->ordered()->get();
+        return view('pages.contact',[
+            'faqs' => $faqs
+        ]);
+    }
+
     public function service(Service $service): View
     {
         abort_unless($service->is_active, 404);

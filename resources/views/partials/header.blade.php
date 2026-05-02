@@ -34,8 +34,8 @@
                         </div>
                         <nav class="nav-dropdown-list shadow-three mobile-shadow-hide w-dropdown-list">
                             <a href="{{ route('services') }}" class="nav-dropdown-link w-dropdown-link">Services</a>
-                            <a href="technology.html" class="nav-dropdown-link w-dropdown-link">Technology</a>
-                            <a href="industry.html" class="nav-dropdown-link w-dropdown-link">Industry</a>
+                            <a href="{{ route('technology') }}" class="nav-dropdown-link w-dropdown-link">Technology</a>
+                            <a href="{{ route('industries') }}" class="nav-dropdown-link w-dropdown-link">Industry</a>
                             <a href="case-studies.html" class="nav-dropdown-link w-dropdown-link">Case Studies</a>
                             <a href="{{ route('insights') }}" class="nav-dropdown-link w-dropdown-link">Insights/Blog</a>
                             <a href="insights-blog.html" class="nav-dropdown-link w-dropdown-link">Event</a>

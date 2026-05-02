@@ -8,6 +8,9 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about-us', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/insights', [PageController::class, 'insights'])->name('insights');
+Route::get('/industries', [PageController::class, 'industries'])->name('industries');
+Route::get('/technology', [PageController::class, 'technology'])->name('technology');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // CMS Pages
 Route::get('/services/{service:slug}', [PageController::class, 'service'])->name('services.show');
