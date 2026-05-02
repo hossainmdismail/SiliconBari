@@ -1,7 +1,7 @@
 @props([
     'title',
     'description',
-    'bookLink' => 'contact-us.html',
+    'bookLink' => route('contact'),
     'scheduleLink' => 'https://calendly.com/synexdigital/30min',
 ])
 

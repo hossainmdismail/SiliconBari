@@ -103,8 +103,11 @@ class PageController extends Controller
     public function contact(): View
     {
         $faqs = Faq::query()->where('is_active', true)->ordered()->get();
-        return view('pages.contact',[
-            'faqs' => $faqs
+        $services = Service::query()->where('is_active', true)->ordered()->get();
+
+        return view('pages.contact', [
+            'faqs' => $faqs,
+            'services' => $services,
         ]);
     }
 

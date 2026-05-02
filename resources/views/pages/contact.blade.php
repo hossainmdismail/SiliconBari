@@ -18,37 +18,63 @@
                 <div class="contact-wrapper small">
                     <div class="contact-form-wrapper">
                         <div class="contact-form w-form">
-                            <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get"
+                            <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="post"
+                                action="{{ route('contact.submit') }}"
                                 class="contact-form" data-wf-page-id="69db66759dc3753db0b199b0"
                                 data-wf-element-id="989ec03f-f9d6-bfb8-b5fc-5dd5546a0aa6">
+                                @csrf
                                 <div class="contact-form-divider">
                                     <div class="h3">Get In Touch</div>
+                                    @if ($errors->any())
+                                        <div class="text-regular" style="color: #b42318;">Please review the highlighted fields and try again.</div>
+                                    @endif
                                     <div class="contact-form-inner-divider">
                                         <div class="auth-input-block"><label for="Name" class="text-regular">Your
                                                 Name*</label><input class="input w-input" maxlength="256" name="Name"
                                                 data-name="Name" placeholder="Type your name" type="text" id="Name"
-                                                required=""></div>
+                                                value="{{ old('Name') }}" required="">
+                                            @error('Name')
+                                                <div class="text-small" style="color: #b42318;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="auth-input-block"><label for="Email"
                                                 class="text-regular">Email*</label><input class="input transparent w-input"
                                                 maxlength="256" name="Email" data-name="Email"
                                                 placeholder="Your.email@company.com" type="email" id="Email"
-                                                required=""></div>
+                                                value="{{ old('Email') }}" required="">
+                                            @error('Email')
+                                                <div class="text-small" style="color: #b42318;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="auth-input-block"><label for="Number"
                                                 class="text-regular">Company*</label><input
                                                 class="input transparent w-input" maxlength="256" name="Number"
                                                 data-name="Number" placeholder="Your company name" type="text"
-                                                id="Number" required=""></div>
+                                                id="Number" value="{{ old('Number') }}" required="">
+                                            @error('Number')
+                                                <div class="text-small" style="color: #b42318;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="auth-input-block"><label for="Interest" class="text-regular">Service
                                                 Interest*</label><select id="Interest" name="Interest" data-name="Interest"
                                                 required="" class="input-2 transparent w-select">
                                                 <option value="">Select project type</option>
-                                                <option value="Global Payment">Global Payment</option>
-                                                <option value="Bank Card">Bank Card</option>
-                                            </select></div>
+                                                @foreach ($services ?? [] as $service)
+                                                    <option value="{{ $service->name }}"
+                                                        @selected(old('Interest') === $service->name)>{{ $service->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('Interest')
+                                                <div class="text-small" style="color: #b42318;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="auth-input-block"><label for="Message"
                                                 class="text-regular">Message*</label>
                                             <textarea placeholder="Tell us about your project" maxlength="5000" id="Message" name="Message" data-name="Message"
-                                                class="input textarea w-input"></textarea>
+                                                class="input textarea w-input" required>{{ old('Message') }}</textarea>
+                                            @error('Message')
+                                                <div class="text-small" style="color: #b42318;">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

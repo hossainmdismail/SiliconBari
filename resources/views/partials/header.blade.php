@@ -40,7 +40,7 @@
                             <a href="{{ route('insights') }}" class="nav-dropdown-link w-dropdown-link">Insights/Blog</a>
                             <a href="insights-blog.html" class="nav-dropdown-link w-dropdown-link">Event</a>
                             <a href="career.html" class="nav-dropdown-link w-dropdown-link">Career</a>
-                            <a href="contact-us.html" class="nav-dropdown-link w-dropdown-link">Contact Us</a>
+                            <a href="{{ route('contact') }}" class="nav-dropdown-link w-dropdown-link">Contact Us</a>
                         </nav>
                     </div>
                 </li>
@@ -49,7 +49,7 @@
                 </li>
             </ul>
             <div class="header-button">
-                <a schedule="True" data-wf--button--variant="base" href="contact-us.html" class="button w-inline-block">
+                <a schedule="True" data-wf--button--variant="base" href="{{ route('contact') }}" class="button w-inline-block">
                     <div class="text-regular">Book Consultation</div>
                     <div class="button-icon-wrap">
                         <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none" xmlns="http://www.w3.org/2000/svg">
