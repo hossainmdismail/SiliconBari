@@ -5,12 +5,14 @@ namespace App\Filament\Widgets;
 use App\Filament\Pages\GlobalSettings;
 use App\Filament\Pages\MarketingSettings;
 use App\Filament\Resources\Brands\BrandResource;
+use App\Filament\Resources\CaseStudies\CaseStudyResource;
 use App\Filament\Resources\Faqs\FaqResource;
 use App\Filament\Resources\Industries\IndustryResource;
 use App\Filament\Resources\Insights\InsightResource;
 use App\Filament\Resources\SeoPages\SeoPagesResource;
 use App\Filament\Resources\Services\ServiceResource;
 use App\Filament\Resources\Teams\TeamResource;
+use App\Filament\Resources\Technologies\TechnologyResource;
 use App\Filament\Resources\Testimonials\TestimonialResource;
 use Filament\Notifications\Notification;
 use Filament\Support\Icons\Heroicon;
@@ -96,6 +98,20 @@ class DashboardQuickLinks extends Widget
                     'icon' => Heroicon::OutlinedBuildingOffice2,
                     'manageUrl' => IndustryResource::getUrl(panel: 'siliconadmin'),
                     'createUrl' => IndustryResource::getUrl('create', panel: 'siliconadmin'),
+                ],
+                [
+                    'label' => 'Technologies',
+                    'description' => 'Manage technology names, ordering, and publish status.',
+                    'icon' => Heroicon::OutlinedCpuChip,
+                    'manageUrl' => TechnologyResource::getUrl(panel: 'siliconadmin'),
+                    'createUrl' => TechnologyResource::getUrl('create', panel: 'siliconadmin'),
+                ],
+                [
+                    'label' => 'Case Studies',
+                    'description' => 'Manage case study content, features, and linked technologies.',
+                    'icon' => Heroicon::OutlinedClipboardDocumentList,
+                    'manageUrl' => CaseStudyResource::getUrl(panel: 'siliconadmin'),
+                    'createUrl' => CaseStudyResource::getUrl('create', panel: 'siliconadmin'),
                 ],
                 [
                     'label' => 'Brands',

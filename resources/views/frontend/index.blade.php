@@ -110,7 +110,7 @@
                   <a href="services.html" class="nav-dropdown-link w-dropdown-link">Services</a>
                   <a href="{{ route('technology') }}" class="nav-dropdown-link w-dropdown-link">Technology</a>
                   <a href="{{ route('industries') }}" class="nav-dropdown-link w-dropdown-link">Industry</a>
-                  <a href="case-studies.html" class="nav-dropdown-link w-dropdown-link">Case Studies</a>
+                  <a href="{{ route('casestudy') }}" class="nav-dropdown-link w-dropdown-link">Case Studies</a>
                   <a href="insights-blog.html" class="nav-dropdown-link w-dropdown-link">Insights/Blog</a>
                   <a href="insights-blog.html" class="nav-dropdown-link w-dropdown-link">Event</a>
                   <a href="career.html" class="nav-dropdown-link w-dropdown-link">Career</a>
@@ -676,7 +676,7 @@
               <div class="footer-link-box">
                 <a href="about-us.html" class="footer-link">About Us</a>
                 <a href="{{ route('industries') }}" class="footer-link">Industries</a>
-                <a href="case-studies.html" class="footer-link">Case Studies</a>
+                <a href="{{ route('casestudy') }}" class="footer-link">Case Studies</a>
                 <a href="insights-blog.html" class="footer-link">Insights</a>
                 <a href="career.html" class="footer-link">Career</a>
               </div>

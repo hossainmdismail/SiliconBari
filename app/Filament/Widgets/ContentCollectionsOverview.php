@@ -3,20 +3,24 @@
 namespace App\Filament\Widgets;
 
 use App\Filament\Resources\Brands\BrandResource;
+use App\Filament\Resources\CaseStudies\CaseStudyResource;
 use App\Filament\Resources\Faqs\FaqResource;
 use App\Filament\Resources\Industries\IndustryResource;
 use App\Filament\Resources\Insights\InsightResource;
 use App\Filament\Resources\SeoPages\SeoPagesResource;
 use App\Filament\Resources\Services\ServiceResource;
 use App\Filament\Resources\Teams\TeamResource;
+use App\Filament\Resources\Technologies\TechnologyResource;
 use App\Filament\Resources\Testimonials\TestimonialResource;
 use App\Models\Brand;
+use App\Models\CaseStudy;
 use App\Models\Faq;
 use App\Models\Industry;
 use App\Models\Insight;
 use App\Models\SeoPages;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Technology;
 use App\Models\Testimonial;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
@@ -46,6 +50,18 @@ class ContentCollectionsOverview extends StatsOverviewWidget
                 ->icon(Heroicon::OutlinedWrenchScrewdriver)
                 ->color('success')
                 ->url(ServiceResource::getUrl(panel: 'siliconadmin')),
+
+            Stat::make('Technologies', Technology::query()->count())
+                ->description(Technology::query()->where('is_active', true)->count() . ' active')
+                ->icon(Heroicon::OutlinedCpuChip)
+                ->color('primary')
+                ->url(TechnologyResource::getUrl(panel: 'siliconadmin')),
+
+            Stat::make('Case Studies', CaseStudy::query()->count())
+                ->description(CaseStudy::query()->whereNotNull('published_date')->count() . ' published')
+                ->icon(Heroicon::OutlinedClipboardDocumentList)
+                ->color('warning')
+                ->url(CaseStudyResource::getUrl(panel: 'siliconadmin')),
 
             Stat::make('Brands', Brand::query()->count())
                 ->description(Brand::query()->where('is_active', true)->count() . ' active')

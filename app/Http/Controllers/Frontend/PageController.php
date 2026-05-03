@@ -64,18 +64,6 @@ class PageController extends Controller
         ]);
     }
 
-    public function insights(): View
-    {
-        $insights = Insight::query()
-            ->where('is_active', true)
-            ->ordered()
-            ->get();
-
-        return view('pages.insights', [
-            'insights' => $insights,
-        ]);
-    }
-
     public function industries(): View
     {
         $industries = Industry::query()
@@ -98,6 +86,23 @@ class PageController extends Controller
         return view('pages.technology', [
             'industries' => $industries,
         ]);
+    }
+
+    public function insights(): View
+    {
+        $insights = Insight::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.insights', [
+            'insights' => $insights,
+        ]);
+    }
+
+    public function casestudy(): View
+    {
+        return view('pages.casestudy');
     }
 
     public function contact(): View
