@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\CaseStudy;
 use App\Models\Faq;
 use App\Models\Insight;
 use App\Models\Industry;
@@ -102,7 +103,13 @@ class PageController extends Controller
 
     public function casestudy(): View
     {
-        return view('pages.casestudy');
+        $caseStudies = CaseStudy::query()
+            ->ordered()
+            ->get();
+
+        return view('pages.casestudy', [
+            'caseStudies' => $caseStudies,
+        ]);
     }
 
     public function contact(): View
@@ -134,6 +141,13 @@ class PageController extends Controller
 
         return view('pages.insight-details', [
             'insight' => $insight,
+        ]);
+    }
+
+    public function caseStudyShow(CaseStudy $caseStudy): View
+    {
+        return view('pages.casestudy-details', [
+            'caseStudy' => $caseStudy->load('technologies'),
         ]);
     }
 

@@ -19,3 +19,4 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 // CMS Pages
 Route::get('/services/{service:slug}', [PageController::class, 'service'])->name('services.show');
 Route::get('/insights/{insight:slug}', [PageController::class, 'insight'])->name('insights.show');
+Route::get('/casestudy/{caseStudy:slug}', [PageController::class, 'caseStudyShow'])->name('casestudy.show');

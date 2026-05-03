@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,6 +28,11 @@ class CaseStudy extends Model
             'published_date' => 'date',
             'features' => 'array',
         ];
+    }
+
+    public function scopeOrdered(Builder $query): Builder
+    {
+        return $query->orderByDesc('published_date')->orderByDesc('id');
     }
 
     public function technologies(): BelongsToMany
