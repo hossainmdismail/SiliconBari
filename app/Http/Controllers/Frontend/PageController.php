@@ -29,12 +29,20 @@ class PageController extends Controller
             ->limit(2)
             ->get();
 
+        $caseStudies = CaseStudy::query()
+            ->where('status', 'published')
+            ->where('is_featured', true)
+            ->ordered()
+            ->limit(2)
+            ->get();
+
         return view('pages.home', [
             'industries' => $industries,
             'services' => $services,
             'brands' => $brands,
             'testimonials' => $testimonials,
             'featuredInsights' => $featuredInsights,
+            'caseStudies' => $caseStudies,
         ]);
     }
 
@@ -104,6 +112,7 @@ class PageController extends Controller
     public function casestudy(): View
     {
         $caseStudies = CaseStudy::query()
+            ->where('status', 'published')
             ->ordered()
             ->get();
 

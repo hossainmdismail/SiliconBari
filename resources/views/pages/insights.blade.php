@@ -79,12 +79,8 @@
                                 @foreach ($insights as $insight)
                                     <div class="case-studies-card">
                                         <div class="case-studies-card-image-block">
-                                            <img
-                                                src="{{ $insight->thumbnail_url ?: asset('images/SiliconBari-The-Future-of-RISC-V-in-Data-Centers.webp') }}"
-                                                loading="lazy"
-                                                alt="{{ $insight->title }}"
-                                                class="case-studies-card-image"
-                                            >
+                                            <img src="{{ $insight->thumbnail_url ?: asset('images/SiliconBari-The-Future-of-RISC-V-in-Data-Centers.webp') }}"
+                                                loading="lazy" alt="{{ $insight->title }}" class="case-studies-card-image">
                                         </div>
                                         <div class="case-studies-content">
                                             <div class="insight-meta-row">
@@ -107,12 +103,11 @@
                                                     <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-embed"><svg
                                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             viewbox="0 0 16 16" fill="none">
-                                                            <path d="M3.3335 8H12.6668" stroke="#00A1B0"
+                                                            <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor"
                                                                 stroke-width="1.33333" stroke-linecap="round"
                                                                 stroke-linejoin="round"></path>
-                                                            <path d="M8 3.3335L12.6667 8.00016L8 12.6668"
-                                                                stroke="currentColor" stroke-width="1.33333"
-                                                                stroke-linecap="round" stroke-linejoin="round"></path>
                                                         </svg></div>
                                                     <div
                                                         class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed">
@@ -120,8 +115,8 @@
                                                             viewbox="0 0 20 9" fill="none">
                                                             <path
                                                                 d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                                                stroke="currentColor" stroke-width="1.2"
-                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
                                                         </svg>
                                                     </div>
                                                 </a>
@@ -154,4 +149,8 @@
             </div>
         </div>
     </section>
+
+    <x-lead-section title="Ready to Transform Your Semiconductor Vision?"
+        description="Let's discuss how our expertise can accelerate your next semiconductor project" {{-- book-link="#"
+        schedule-link="#" --}} />
 @endsection

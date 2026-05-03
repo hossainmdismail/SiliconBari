@@ -20,6 +20,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs;
@@ -28,6 +29,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -65,6 +67,20 @@ class CaseStudyResource extends Resource
                                         DatePicker::make('published_date')
                                             ->label('Published Date')
                                             ->native(false),
+
+                                        Select::make('status')
+                                            ->options([
+                                                'draft' => 'Draft',
+                                                'published' => 'Published',
+                                            ])
+                                            ->default('published')
+                                            ->required()
+                                            ->native(false),
+
+                                        Toggle::make('is_featured')
+                                            ->label('Featured')
+                                            ->default(false)
+                                            ->columnSpanFull(),
 
                                         TextInput::make('title')
                                             ->label('Title')
@@ -177,27 +193,32 @@ class CaseStudyResource extends Resource
                     ->disk('public')
                     ->square(),
 
-                TextColumn::make('published_date')
-                    ->label('Published')
-                    ->date()
-                    ->sortable(),
-
                 TextColumn::make('title')
                     ->label('Title')
                     ->searchable()
                     ->sortable()
                     ->wrap(),
 
+                TextColumn::make('published_date')
+                    ->label('Published')
+                    ->date()
+                    ->sortable(),
+
+                ToggleColumn::make('is_featured')
+                    ->label('Featured'),
+
+                TextColumn::make('status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'draft' => 'gray',
+                        'published' => 'success',
+                        default => 'gray',
+                    }),
+
                 TextColumn::make('slug')
                     ->label('Slug')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
-                TextColumn::make('written_by')
-                    ->label('Written By')
-                    ->searchable()
-                    ->sortable()
-                    ->toggleable(),
 
                 TextColumn::make('industry')
                     ->label('Industry')
@@ -210,12 +231,6 @@ class CaseStudyResource extends Resource
                     ->badge()
                     ->searchable()
                     ->sortable(),
-
-                TextColumn::make('technologies.name')
-                    ->label('Technologies')
-                    ->badge()
-                    ->separator(', ')
-                    ->toggleable(),
 
                 TextColumn::make('updated_at')
                     ->label('Updated')
@@ -243,6 +258,12 @@ class CaseStudyResource extends Resource
                 SelectFilter::make('technologies')
                     ->label('Technology')
                     ->relationship('technologies', 'name'),
+
+                SelectFilter::make('status')
+                    ->options([
+                        'draft' => 'Draft',
+                        'published' => 'Published',
+                    ]),
             ])
             ->recordActions([
                 ViewAction::make(),

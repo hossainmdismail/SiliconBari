@@ -275,59 +275,9 @@
                     <p class="text-regular">Our Case-studies</p>
                 </div>
                 <div data-w-id="58dccc1a-57d6-2c73-c5ae-0139ee268a9b" class="case-studies-card-wrapper">
-                    <div class="case-studies-card">
-                        <div class="case-studies-card-image-block"><img
-                                src="images/Automotive-ADAS-System-Development.webp" loading="lazy"
-                                alt="Robotic arms inspecting or processing semiconductor wafers with multiple microchips."
-                                class="case-studies-card-image"></div>
-                        <div class="case-studies-card-text-block">
-                            <p class="text-large">Automotive ADAS System Development</p>
-                            <p class="text-regular">Custom RISC-V based SoC with real-time processing. 40%
-                                <br>performance improvement, ISO 26262 certified<br>
-                            </p>
-                        </div>
-                        <a data-wf--link-button--variant="arow-large" href="#"
-                            class="link-button w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-inline-block">
-                            <div>View Success Stories</div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
-                                    fill="none">
-                                    <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor"
-                                        stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg></div>
-                            <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </a>
-                    </div>
-                    <div class="case-studies-card">
-                        <div class="case-studies-card-image-block"><img
-                                src="images/Siliconbari-AI-Accelerator-ASIC-Design.webp" loading="lazy" alt=""
-                                class="case-studies-card-image"></div>
-                        <div class="case-studies-card-text-block">
-                            <p class="text-large">AI Accelerator ASIC Design</p>
-                            <p class="text-regular">Custom RISC-V based SoC with real-time processing. 40%
-                                <br>performance improvement, ISO 26262 certified
-                            </p>
-                        </div>
-                        <a href="#" class="case-studies-button w-inline-block">
-                            <div>View Success Stories</div>
-                            <div class="svg w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                    height="9" viewbox="0 0 20 9" fill="none">
-                                    <path
-                                        d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg></div>
-                        </a>
-                    </div>
+                    @foreach ($caseStudies ?? [] as $caseStudy)
+                        <x-case-study-card :caseStudy="$caseStudy" />
+                    @endforeach
                 </div>
             </div>
         </div>

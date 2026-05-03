@@ -13,9 +13,10 @@ class CaseStudy extends Model
         'published_date',
         'title',
         'slug',
+        'is_featured',
+        'status',
         'short_description',
         'thumbnail',
-        'written_by',
         'industry',
         'category',
         'text_body',
@@ -26,6 +27,7 @@ class CaseStudy extends Model
     {
         return [
             'published_date' => 'date',
+            'is_featured' => 'boolean',
             'features' => 'array',
         ];
     }
