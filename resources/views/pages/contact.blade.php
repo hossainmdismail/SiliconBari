@@ -94,8 +94,9 @@
                     <div class="schedule-card">
                         <div class="schedule-content">
                             <div class="text-large">Urgent Project?</div>
-                            <div class="text-regular">We are available for immediate consultation on mission-critical
-                                verification projects</div>
+                            <div class="text-regular">
+                                {{ $globalSettings?->company_short_description ?: 'We are available for immediate consultation on mission-critical verification projects' }}
+                            </div>
                         </div>
                         <a schedule="True" data-wf--button--variant="secondary" href="#"
                             class="button w-variant-1f7bab6e-c91f-cebe-0855-7d95a492a433 w-inline-block">
@@ -122,7 +123,7 @@
                                 </svg></div>
                             <div class="contact-inner-card-text">
                                 <div>Phone Number</div>
-                                <div>01897170333</div>
+                                <div>{{ $globalSettings?->contact_phone ?: 'Not provided yet' }}</div>
                             </div>
                         </div>
                         <div class="content-inner-card">
@@ -135,7 +136,7 @@
                                 </svg></div>
                             <div class="contact-inner-card-text">
                                 <div>Email Address</div>
-                                <div>siliconbari@email.com</div>
+                                <div>{{ $globalSettings?->contact_email ?: 'Not provided yet' }}</div>
                             </div>
                         </div>
                         <div class="content-inner-card">
@@ -152,7 +153,7 @@
                                 </svg></div>
                             <div class="contact-inner-card-text">
                                 <div>Address</div>
-                                <div>123 Main St, Dubai, UAE</div>
+                                <div>{{ $globalSettings?->address ?: 'Not provided yet' }}</div>
                             </div>
                         </div>
                         <div class="content-inner-card no-border">

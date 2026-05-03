@@ -1,7 +1,8 @@
 <header data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="navbar-wrapper">
         <a href="/" aria-current="page" class="navbar-brand w-nav-brand w--current">
-            <img loading="eager" src="{{ asset('images/Silicon-Bari-Nav-Logo.svg') }}" alt="" class="navbar-logo">
+            <img loading="eager" src="{{ $globalSettings?->logo_url ?: asset('images/Silicon-Bari-Nav-Logo.svg') }}"
+                alt="{{ $globalSettings?->site_name ?: config('app.name') }}" class="navbar-logo">
         </a>
         <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <ul role="list" class="nav-menu-list-wrapper w-list-unstyled">
