@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
-use App\Models\CaseStudy;
+use App\Models\Event;
+use App\Models\EventSubmission;
 use App\Models\Faq;
 use App\Models\Insight;
 use App\Models\Industry;
 use App\Models\Service;
 use App\Models\Team;
 use App\Models\Testimonial;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 
@@ -104,8 +106,14 @@ class PageController extends Controller
             ->ordered()
             ->get();
 
+        $events = Event::query()
+            ->where('is_active', true)
+            ->orderBy('event_date', 'asc')
+            ->get();
+
         return view('pages.insights', [
             'insights' => $insights,
+            'events' => $events,
         ]);
     }
 
@@ -158,6 +166,31 @@ class PageController extends Controller
         return view('pages.casestudy-details', [
             'caseStudy' => $caseStudy->load('technologies'),
         ]);
+    }
+
+    public function eventRegistration(Event $event): View
+    {
+        return view('pages.event-form', [
+            'event' => $event,
+        ]);
+    }
+
+    public function storeEventRegistration(Request $request, Event $event)
+    {
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:255',
+            'current_location' => 'required|string|max:255',
+            'job_title' => 'nullable|string|max:255',
+            'university_company' => 'required|string|max:255',
+            'industry' => 'required|string|max:255',
+            'additional_info' => 'nullable|string|max:5000',
+        ]);
+
+        $event->submissions()->create($validated);
+
+        return back()->with('success', 'Thank you! Your registration has been received!');
     }
 
     protected function sortSectionItems(?array $items): Collection

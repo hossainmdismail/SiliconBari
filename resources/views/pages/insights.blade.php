@@ -137,12 +137,15 @@
                     </div>
 
                     <div data-w-tab="Tab 2" class="insights-tab-content w-tab-pane">
-                        <div class="insight-events-placeholder">
-                            <div class="insight-empty-state-copy">
-                                <h2 class="h3">Events are coming soon.</h2>
-                                <p class="text-regular">Ei section-ta pore events diye fill kora jabe. Ekhon sudhu
-                                    insights/blog content live ache.</p>
-                            </div>
+                        <div class="event-grid">
+                            @forelse ($events ?? [] as $event)
+                                <x-event-card :event="$event" />
+                            @empty
+                                <div class="insight-empty-state-copy">
+                                    <h2 class="h3">No events scheduled yet.</h2>
+                                    <p class="text-regular">Stay tuned for upcoming industry events and webinars.</p>
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>

@@ -20,3 +20,7 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/services/{service:slug}', [PageController::class, 'service'])->name('services.show');
 Route::get('/insights/{insight:slug}', [PageController::class, 'insight'])->name('insights.show');
 Route::get('/casestudy/{caseStudy:slug}', [PageController::class, 'caseStudyShow'])->name('casestudy.show');
+
+// Event Routes
+Route::get('/events/{event}/register', [PageController::class, 'eventRegistration'])->name('events.register');
+Route::post('/events/{event}/register', [PageController::class, 'storeEventRegistration'])->name('events.register.submit');
