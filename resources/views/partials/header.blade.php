@@ -40,13 +40,13 @@
                             <a href="{{ route('casestudy') }}" class="nav-dropdown-link w-dropdown-link">Case Studies</a>
                             <a href="{{ route('insights') }}" class="nav-dropdown-link w-dropdown-link">Insights/Blog</a>
                             <a href="insights-blog.html" class="nav-dropdown-link w-dropdown-link">Event</a>
-                            <a href="career.html" class="nav-dropdown-link w-dropdown-link">Career</a>
+                            <a href="{{ route('careers') }}" class="nav-dropdown-link w-dropdown-link">Career</a>
                             <a href="{{ route('contact') }}" class="nav-dropdown-link w-dropdown-link">Contact Us</a>
                         </nav>
                     </div>
                 </li>
                 <li>
-                    <a href="career.html" class="nav-link">Career</a>
+                    <a href="{{ route('careers') }}" class="nav-link">Career</a>
                 </li>
             </ul>
             <div class="header-button">

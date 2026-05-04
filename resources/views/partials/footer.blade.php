@@ -17,7 +17,7 @@
                         <a href="{{ route('industries') }}" class="footer-link">Industries</a>
                         <a href="{{ route('casestudy') }}" class="footer-link">Case Studies</a>
                         <a href="{{ route('insights') }}" class="footer-link">Insights</a>
-                        <a href="career.html" class="footer-link">Career</a>
+                        <a href="{{ route('careers') }}" class="footer-link">Career</a>
                     </div>
                 </div>
                 <div class="footer-link-box-block">

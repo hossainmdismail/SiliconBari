@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Career;
+use App\Models\CaseStudy;
 use App\Models\Event;
 use App\Models\EventSubmission;
 use App\Models\Faq;
@@ -126,6 +127,36 @@ class PageController extends Controller
 
         return view('pages.casestudy', [
             'caseStudies' => $caseStudies,
+        ]);
+    }
+
+    public function careers(): View
+    {
+        $careers = Career::query()
+            ->where('is_active', true)
+            ->ordered()
+            ->get();
+
+        return view('pages.careers', [
+            'careers' => $careers,
+        ]);
+    }
+
+    public function careerShow(Career $career): View
+    {
+        abort_unless($career->is_active, 404);
+
+        return view('pages.career-details', [
+            'career' => $career,
+        ]);
+    }
+
+    public function careerApply(Career $career): View
+    {
+        abort_unless($career->is_active, 404);
+
+        return view('pages.career-form', [
+            'career' => $career,
         ]);
     }
 
