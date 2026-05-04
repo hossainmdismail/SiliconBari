@@ -14,6 +14,8 @@ Route::get('/industries', [PageController::class, 'industries'])->name('industri
 Route::get('/technology', [PageController::class, 'technology'])->name('technology');
 Route::get('/casestudy', [PageController::class, 'casestudy'])->name('casestudy');
 Route::get('/careers', [PageController::class, 'careers'])->name('careers');
+Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('/terms-of-service', [PageController::class, 'termsOfService'])->name('termsOfService');
 Route::post('/contact', [ContactSubmissionController::class, 'store'])->name('contact.submit');
 Route::get('/contact/thank-you', [ContactSubmissionController::class, 'thankYou'])->name('contact.thank-you');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');

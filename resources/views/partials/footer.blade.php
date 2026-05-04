@@ -23,11 +23,9 @@
                 <div class="footer-link-box-block">
                     <div class="footer-link-title">Services</div>
                     <div class="footer-link-box">
-                        <a href="services.html" class="footer-link">RISC-V Development</a>
-                        <a href="service-details.html" class="footer-link">FPGA Solutions</a>
-                        <a href="services.html" class="footer-link">SoC Design</a>
-                        <a href="#" class="footer-link">ASIC Engineering</a>
-                        <a href="#" class="footer-link">Verification Services</a>
+                        @foreach ($globalServices as $service)
+                            <a href="{{ route('services.show', $service) }}" class="footer-link">{{ $service->name }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="footer-link-box-block">
@@ -93,10 +91,10 @@
                 {{ $globalSettings?->copyright_text ?: '© '.now()->year.' '.($globalSettings?->site_name ?: 'SiliconBari').'. All rights reserved.' }}
             </div>
             <div class="footer-bottom-text-block">
-                <a href="privacy-policy.html" class="footer-link is-white w-inline-block">
+                <a href="{{ route('privacyPolicy') }}" class="footer-link is-white w-inline-block">
                     <div>Privacy Policy</div>
                 </a>
-                <a href="terms-of-service.html" class="footer-link is-white w-inline-block">
+                <a href="{{ route('termsOfService') }}" class="footer-link is-white w-inline-block">
                     <div>Terms of Service</div>
                 </a>
             </div>

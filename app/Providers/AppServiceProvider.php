@@ -27,6 +27,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::share('globalSettings', $this->resolveGlobalSettings());
+        View::share('globalServices', $this->resolveGlobalServices());
+    }
+
+    protected function resolveGlobalServices()
+    {
+        try {
+            if (!Schema::hasTable('services')) {
+                return collect();
+            }
+            return \App\Models\Service::query()->where('is_active', true)->orderBy('sort_order')->get();
+        } catch (\Throwable) {
+            return collect();
+        }
     }
 
     protected function resolveGlobalSettings(): ?GlobalSetting

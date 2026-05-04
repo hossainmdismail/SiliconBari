@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Career;
 use App\Models\CaseStudy;
 use App\Models\Event;
@@ -140,6 +141,16 @@ class PageController extends Controller
         return view('pages.careers', [
             'careers' => $careers,
         ]);
+    }
+
+    public function privacyPolicy(): View
+    {
+        return view('pages.privacy-policy');
+    }
+
+    public function termsOfService(): View
+    {
+        return view('pages.terms-of-service');
     }
 
     public function careerShow(Career $career): View

@@ -37,11 +37,12 @@
                     </div>
                 </div>
                 <div data-w-id="dc74feff-8b25-7dea-7a9b-002dd027e896" class="button-group">
-                    <a schedule="True" data-wf--button--variant="base" href="contact-us.html" class="button w-inline-block">
+                    <a schedule="True" data-wf--button--variant="base" href="{{ route('contact') }}"
+                        class="button w-inline-block">
                         <div class="text-regular">Book Consultation</div>
                         <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
                                         stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,10 +53,10 @@
                     <a schedule="True" data-wf--button-shedule--variant="secondary"
                         data-w-id="b2bba35a-c10b-4947-b354-8bc49d1c6869" href="#"
                         class="button w-variant-b1a5775f-aa65-f55d-bcd3-880d6be44382 w-inline-block">
-                        <div class="text-regular">Book Consultation</div>
+                        <div class="text-regular">Schedule a Meeting</div>
                         <div class="button-icon-wrap">
-                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
                                         stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -94,8 +95,8 @@
             </div>
             <div class="service-card-wrapper">
                 @foreach ($services ?? [] as $service)
-                    <div servicecard="1" data-wf--service-card--variant="base"
-                        data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd" class="service-card">
+                    <div servicecard="1" data-wf--service-card--variant="base" data-w-id="f8f8f7b0-6839-0dd1-8421-e853e0bf8bbd"
+                        class="service-card">
                         <div class="service-card-icon-block"><img loading="eager" src="images/siliconbari-service-icon.svg"
                                 alt="" class="service-card-icon"></div>
                         <div class="service-card-text-block">
@@ -127,8 +128,8 @@
                             class="button w-inline-block">
                             <div class="text-regular">Book Consultation</div>
                             <div class="button-icon-wrap">
-                                <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <div class="button-icon w-embed"><svg width="20" height="9" viewbox="0 0 20 9" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
                                             stroke="white" stroke-width="1.2" stroke-linecap="round"
@@ -208,8 +209,7 @@
                     </div>
                 </div>
                 <div data-w-id="dc9540d3-4cd5-b976-9e18-b566f8fa06b3" class="expertise-content-image-block"><img
-                        src="images/silicon-bari-content-image.webp" loading="lazy" alt=""
-                        class="expertise-content-image">
+                        src="images/silicon-bari-content-image.webp" loading="lazy" alt="" class="expertise-content-image">
                     <div class="expertise-box"></div>
                     <div class="expertise-box right"></div>
                 </div>
@@ -223,8 +223,7 @@
                 <h2 class="h2">Silicon-Proven Semiconductor Engineering Services</h2>
             </div>
             <div data-w-id="604d18ef-3aca-4f69-3331-cc542dd72160" class="silicon-proven-image-block"><img
-                    src="images/Silicon-Proven-Image.webp" loading="lazy"
-                    sizes="(max-width: 1200px) 100vw, 1200px, 100vw"
+                    src="images/Silicon-Proven-Image.webp" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px, 100vw"
                     srcset="images/Frame-1618873586-p-500.webp 500w, images/Frame-1618873586-p-800.webp 800w, images/Frame-1618873586-p-1080.webp 1080w, images/Silicon-Proven-Image.webp 1200w"
                     alt="" class="silicon-proven-image">
                 <div data-poster-url="videos/vecteezy_microchip-artificial-intelligence-network-ai-line-circuit_21922492_poster.0000000.jpg"
@@ -314,8 +313,7 @@
                                             stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg></div>
                                 <div class="svg w-variant-72187677-7c2d-ae5c-9014-8d5bd8c94d11 arrow-large w-embed"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
-                                        fill="none">
+                                        xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9" fill="none">
                                         <path
                                             d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
                                             stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
@@ -353,32 +351,27 @@
                         class="link-button w-variant-d2a5642a-4ecd-52bb-dfd5-5fba7bb2dcc5 w-inline-block">
                         <div>Register for Events</div>
                         <div class="svg w-variant-d2a5642a-4ecd-52bb-dfd5-5fba7bb2dcc5 w-embed"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
-                                fill="none">
-                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                                <path d="M3.3335 8H12.6668" stroke="#00A1B0" stroke-width="1.33333" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
                                 <path d="M8 3.3335L12.6667 8.00016L8 12.6668" stroke="currentColor" stroke-width="1.33333"
                                     stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg></div>
                         <div class="svg w-variant-d2a5642a-4ecd-52bb-dfd5-5fba7bb2dcc5 arrow-large w-embed"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9"
-                                fill="none">
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="9" viewbox="0 0 20 9" fill="none">
                                 <path
                                     d="M14.8501 0.599609L18.6001 4.34961M18.6001 4.34961L14.8501 8.09961M18.6001 4.34961H0.600098"
-                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
+                                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
                             </svg></div>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-    <x-lead-section
-        title="Ready to Transform Your Semiconductor Vision?"
-        description="Let's discuss how our expertise can accelerate your next semiconductor project"
-        {{-- book-link="#"
-        schedule-link="#" --}}
-    />
+    <x-lead-section title="Ready to Transform Your Semiconductor Vision?"
+        description="Let's discuss how our expertise can accelerate your next semiconductor project" {{-- book-link="#"
+        schedule-link="#" --}} />
 @endsection
 
 @push('scripts')
@@ -414,10 +407,10 @@
                     autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
                         ? false
                         : {
-                              delay: 3200,
-                              disableOnInteraction: false,
-                              pauseOnMouseEnter: true,
-                          },
+                            delay: 3200,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        },
                     breakpoints: {
                         992: {
                             slidesPerView: 3,
