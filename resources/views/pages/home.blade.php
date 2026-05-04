@@ -142,6 +142,7 @@
             </div>
         </div>
     </section>
+    <!-- Technology -->
     <section class="section-60-60">
         <div class="container">
             <div class="expertise-content-wrapper">
@@ -151,61 +152,14 @@
                         <p class="text-regular">We specialize in the latest semiconductor technologies and
                             methodologies to deliver exceptional results.</p>
                     </div>
+                    <!-- Expertise Widget -->
                     <div class="expertise-widget-wrapper">
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
-                        <div data-w-id="4ba82bee-3418-31da-b2f5-6523c9295b3b" class="expertise-widget">
-                            <div class="expertise-widget-meta-block"><img loading="lazy"
-                                    src="images/siliconbari-svg-icon.svg" alt="" class="expertise-widget-icon">
-                                <p class="expertise-widget-title">RISC-V</p>
-                            </div>
-                            <div class="expertise-widget-text-block">
-                                <p class="text-small">Open-source instruction set architecture</p>
-                            </div>
-                        </div>
+                        <x-expertise-widget title="RISC-V" description="Open-source instruction set architecture" />
+                        <x-expertise-widget title="ASIC" description="Application-Specific Integrated Circuit" />
+                        <x-expertise-widget title="SoC" description="System-on-Chip integration" />
+                        <x-expertise-widget title="FPGA" description="Field-Programmable Gate Array" />
+                        <x-expertise-widget title="Verification" description="Advanced verification methodologies" />
+                        <x-expertise-widget title="Embedded Systems" description="Real-time embedded solutions" />
                     </div>
                 </div>
                 <div data-w-id="dc9540d3-4cd5-b976-9e18-b566f8fa06b3" class="expertise-content-image-block"><img
@@ -289,6 +243,7 @@
                 <p class="text-regular">Stay Updated with the latest in semiconductor technology and company news.</p>
             </div>
             <div data-w-id="59fe2b73-295d-aa1c-65d9-6241d6aafc81" class="insights-card-wrapper">
+                <!-- Insights Card -->
                 @foreach ($featuredInsights ?? [] as $insight)
                     <div class="insights-card">
                         <div class="insights-card-image-block">
@@ -323,6 +278,7 @@
                         </div>
                     </div>
                 @endforeach
+                <!-- Upcoming Events -->
                 <div id="w-node-_9a760fa5-1d7c-47d1-0b28-4e9e8cf6c839-1c8bddfb" class="upcoming-events-card">
                     <p class="text-regular semi-bold neutral-color-01">Upcoming Events</p>
                     <div class="upcoming-events-text-box-wrap">
