@@ -183,7 +183,7 @@
             </div>
         </div>
     </section>
-    <x-lead-section title="Ready to Transform Your Semiconductor Vision?"
-        description="Let's discuss how our expertise can accelerate your next semiconductor project" {{-- book-link="#"
-        schedule-link="#" --}} />
+    <x-lead-section title="Don't See the Right Role?"
+        description="We're always looking for exceptional talent. Send us your resume and we'll keep you in mind for future opportunities."
+        {{-- book-link="#" schedule-link="#" --}} />
 @endsection

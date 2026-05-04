@@ -40,6 +40,13 @@ class PageController extends Controller
             ->limit(2)
             ->get();
 
+        $upcomingEvents = Event::query()
+            ->where('is_active', true)
+            ->where('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->limit(2)
+            ->get();
+
         return view('pages.home', [
             'industries' => $industries,
             'services' => $services,
@@ -47,6 +54,7 @@ class PageController extends Controller
             'testimonials' => $testimonials,
             'featuredInsights' => $featuredInsights,
             'caseStudies' => $caseStudies,
+            'upcomingEvents' => $upcomingEvents,
         ]);
     }
 

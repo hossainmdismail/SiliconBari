@@ -30,8 +30,8 @@
                                 <div class="career-lists">
                                     @foreach ($career->key_qualifications as $item)
                                         <div class="career-list">
-                                            <div class="career-list-icon w-embed"><svg width="8" height="8"
-                                                    viewbox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <div class="career-list-icon w-embed"><svg width="8" height="8" viewbox="0 0 8 8"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="4" cy="4" r="4" fill="#2F5E8C"></circle>
                                                 </svg></div>
                                             <div>{{ $item['title'] }}</div>
@@ -47,8 +47,8 @@
                                 <div class="career-lists">
                                     @foreach ($career->responsibilities as $item)
                                         <div class="career-list">
-                                            <div class="career-list-icon w-embed"><svg width="8" height="8"
-                                                    viewbox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <div class="career-list-icon w-embed"><svg width="8" height="8" viewbox="0 0 8 8"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="4" cy="4" r="4" fill="#2F5E8C"></circle>
                                                 </svg></div>
                                             <div>{{ $item['title'] }}</div>
@@ -64,8 +64,8 @@
                                 <div class="career-lists">
                                     @foreach ($career->benefits as $item)
                                         <div class="career-list">
-                                            <div class="career-list-icon w-embed"><svg width="8" height="8"
-                                                    viewbox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <div class="career-list-icon w-embed"><svg width="8" height="8" viewbox="0 0 8 8"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="4" cy="4" r="4" fill="#2F5E8C"></circle>
                                                 </svg></div>
                                             <div>{{ $item['title'] }}</div>
@@ -183,10 +183,10 @@
             </div>
         </div>
     </section>
-            </div>
-        </div>
+    </div>
+    </div>
     </section>
-    <x-lead-section title="Ready to Transform Your Semiconductor Vision?"
-        description="Let's discuss how our expertise can accelerate your next semiconductor project" {{-- book-link="#"
-        schedule-link="#" --}} />
+    <x-lead-section title="Don't See the Right Role?"
+        description="We're always looking for exceptional talent. Send us your resume and we'll keep you in mind for future opportunities."
+        {{-- book-link="#" schedule-link="#" --}} />
 @endsection
